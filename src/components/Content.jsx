@@ -4,7 +4,6 @@ import virusLg from "../assets/images/virus-lg.svg";
 
 const Content = () => {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     axios
       .get("https://disease.sh/v3/covid-19/all")
@@ -23,7 +22,7 @@ const Content = () => {
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-5xl">
-            Total Cases: <span>{data.cases}</span>
+            Total Cases: <span>{data.cases.toLocaleString()}</span>
           </h1>
           <div>
             <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
