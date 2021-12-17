@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import virusLg from "../assets/images/virus-lg.svg";
 
 const Content = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://disease.sh/v3/covid-19/all")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <div
       className="flex items-center justify-between"
