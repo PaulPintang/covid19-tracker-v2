@@ -4,13 +4,13 @@ import Toggle from "./theme/Toggle";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center h-28">
+    <div className="dark:text-gray-300 flex justify-between items-center h-28">
       <div class="flex items-center gap-2 h-full">
         <div className="w-11">
           <img src={virus} alt="" className="w-full" />
         </div>
         <div>
-          <h1 className="text-gray-800 text-2xl font-medium">
+          <h1 className="text-gray-800 dark:text-gray-300 text-2xl font-medium">
             Covid-19 Tracker
           </h1>
           <small className="italic">
