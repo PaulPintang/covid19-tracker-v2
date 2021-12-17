@@ -5,7 +5,7 @@ import Toggle from "./theme/Toggle";
 const Header = () => {
   return (
     <div className="dark:text-gray-300 flex justify-between items-center h-28">
-      <div class="flex items-center gap-2 h-full">
+      <div className="flex items-center gap-2 h-full">
         <div className="w-11">
           <img src={virus} alt="" className="w-full" />
         </div>

@@ -9,7 +9,7 @@ const Content = () => {
     axios
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
-        console.log(res);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -22,7 +22,9 @@ const Content = () => {
     >
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
-          <h1 class="text-5xl">Total Cases: 172,344,534</h1>
+          <h1 className="text-5xl">
+            Total Cases: <span>{data.cases}</span>
+          </h1>
           <div>
             <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
             <p className="font-medium italic text-gray-500">
