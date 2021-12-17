@@ -9,11 +9,13 @@ const Content = () => {
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
         setData(res.data);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
+  const total = data.cases;
   return (
     <div
       className="flex items-center justify-between"
@@ -22,7 +24,7 @@ const Content = () => {
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-5xl">
-            Total Cases: <span>{data.cases.toLocaleString()}</span>
+            Total Cases: <span>{total}</span>
           </h1>
           <div>
             <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
