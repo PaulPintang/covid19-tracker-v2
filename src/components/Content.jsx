@@ -9,12 +9,13 @@ const Content = () => {
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
         setData(res.data);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
   },[]);
+
+  // initialize data from the API
   const total = data.cases;
   return (
     <div
