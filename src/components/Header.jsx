@@ -13,7 +13,7 @@ const Header = () => {
           <h1 className="text-gray-800 dark:text-gray-300 text-2xl font-medium">
             Covid-19 Tracker
           </h1>
-          <small className="italic">
+          <small className="italic text-gray-500">
             Covid-19 data source from Worldometers(disease.sh)
           </small>
         </div>
