@@ -1,7 +1,7 @@
 /* Rotate Animation */
 @media (prefers-reduced-motion: no-preference) {
   .rotate {
-    animation: rotate-spin infinite 35s linear;
+    animation: rotate-spin infinite 70s linear;
   }
 }
 @keyframes rotate-spin {
