@@ -49,7 +49,7 @@ const Content = (props) => {
             <small className="dark:text-gray-400">Recovered</small>
           </div>
           <div className="flex gap-3 items-center">
-            <div className="w-8 h-2 bg-red-400"></div>
+            <div className="w-8 h-2 bg-red-300"></div>
             <small className="dark:text-gray-400">Deaths</small>
           </div>
         </div>

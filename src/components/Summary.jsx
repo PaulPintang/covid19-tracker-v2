@@ -36,7 +36,9 @@ const Summary = (props) => {
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
-            <small className="text-yellow-300"> + {todayCases}</small>
+            <small className="text-yellow-300 text-sm">
+              + {todayCases} today
+            </small>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -52,6 +54,9 @@ const Summary = (props) => {
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
+            <small className="text-green-300 text-sm">
+              + {todayRecovered} today
+            </small>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -67,6 +72,9 @@ const Summary = (props) => {
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
+            <small className="text-red-300 text-sm">
+              + {todayDeaths} today
+            </small>
           </div>
         </div>
       </div>
