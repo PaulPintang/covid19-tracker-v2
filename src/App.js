@@ -20,11 +20,14 @@ function App() {
 
   // initialize data from the API
   let total = data.cases;
+  let active = data.active;
+  let recovered = data.recovered;
+  let deaths = data.deaths;
   return (
     <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
       <Header />
       <Content total={total} />
-      <Summary />
+      <Summary active={active} recovered={recovered} deaths={deaths} />
     </div>
   );
 }
