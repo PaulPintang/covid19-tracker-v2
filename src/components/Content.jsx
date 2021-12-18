@@ -13,10 +13,11 @@ const Content = () => {
       .catch((err) => {
         console.log(err);
       });
-  },[]);
+  }, []);
 
   // initialize data from the API
-  const total = data.cases;
+  let total = data.cases;
+
   return (
     <div
       className="flex items-center justify-between"
