@@ -5,8 +5,8 @@ import virusLg from "../assets/images/virus-lg.svg";
 const Content = (props) => {
   return (
     <div
-      className="flex items-center justify-between"
-      style={{ height: "calc(80vh - 7rem)" }}
+      className="flex items-center justify-between pb-10"
+      style={{ height: "calc(85vh - 7rem)" }}
     >
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
@@ -55,7 +55,7 @@ const Content = (props) => {
         </div>
       </div>
 
-      <div style={{ width: 380 }}>
+      <div style={{ width: 360 }}>
         <img src={virusLg} alt="" className="w-full rotate" />
       </div>
     </div>

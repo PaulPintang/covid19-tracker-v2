@@ -27,9 +27,11 @@ function App() {
   let todayRecovered = data.todayRecovered;
   let todayDeaths = data.todayDeaths;
   return (
-    <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-      <Header />
-      <Content total={total} />
+    <React.Fragment>
+      <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+        <Header />
+        <Content total={total} />
+      </div>
       <Summary
         active={active}
         recovered={recovered}
@@ -38,7 +40,7 @@ function App() {
         todayRecovered={todayRecovered}
         todayDeaths={todayDeaths}
       />
-    </div>
+    </React.Fragment>
   );
 }
 
