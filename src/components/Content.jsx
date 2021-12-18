@@ -20,6 +20,7 @@ const Content = (props) => {
               />
             </span>
           </h1>
+
           <div>
             <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
             <p className="font-medium italic text-gray-500">
@@ -38,7 +39,22 @@ const Content = (props) => {
             without special treatment.
           </p>
         </div>
+        <div className="flex flex-wrap justify-start md:flex lg:flex items-center gap-2 md:gap-4 lg:gap-4 pb-3">
+          <div className="flex gap-3 items-center">
+            <div className="bg-yellow-300 w-8 h-2"></div>
+            <small className="dark:text-gray-400">Active</small>
+          </div>
+          <div className="flex gap-3 items-center">
+            <div className="bg-green-300 w-8 h-2"></div>
+            <small className="dark:text-gray-400">Recovered</small>
+          </div>
+          <div className="flex gap-3 items-center">
+            <div className="w-8 h-2 bg-red-400"></div>
+            <small className="dark:text-gray-400">Deaths</small>
+          </div>
+        </div>
       </div>
+
       <div style={{ width: 380 }}>
         <img src={virusLg} alt="" className="w-full rotate" />
       </div>

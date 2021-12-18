@@ -23,11 +23,21 @@ function App() {
   let active = data.active;
   let recovered = data.recovered;
   let deaths = data.deaths;
+  let todayCases = data.todayCases;
+  let todayRecovered = data.todayRecovered;
+  let todayDeaths = data.todayDeaths;
   return (
     <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
       <Header />
       <Content total={total} />
-      <Summary active={active} recovered={recovered} deaths={deaths} />
+      <Summary
+        active={active}
+        recovered={recovered}
+        deaths={deaths}
+        todayCases={todayCases}
+        todayRecovered={todayRecovered}
+        todayDeaths={todayDeaths}
+      />
     </div>
   );
 }

@@ -3,6 +3,9 @@ import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
 const Summary = (props) => {
+  // destructure props
+  const { active, recovered, deaths, todayCases, todayRecovered, todayDeaths } =
+    props;
   return (
     <div
       class="shadow-md rounded-sm p-7 mx-auto mt-3"
@@ -28,11 +31,12 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={props.active}
+                end={active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
+            <small className="text-yellow-300"> + {todayCases}</small>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -43,7 +47,7 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Recovered</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={props.recovered}
+                end={recovered}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
@@ -58,7 +62,7 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Deaths</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={props.deaths}
+                end={deaths}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
