@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CountUp from "react-countup";
-import axios from "axios";
 import virusLg from "../assets/images/virus-lg.svg";
 
-const Content = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://disease.sh/v3/covid-19/all")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  // initialize data from the API
-  let total = data.cases;
-
+const Content = (props) => {
   return (
     <div
       className="flex items-center justify-between"
@@ -28,9 +12,9 @@ const Content = () => {
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-5xl">
             Total Cases:
-            <span>
+            <span className="pl-3">
               <CountUp
-                end={total}
+                end={props.total}
                 duration={1.5}
                 formattingFn={(total) => total.toLocaleString()}
               />
