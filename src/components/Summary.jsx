@@ -7,9 +7,9 @@ const Summary = (props) => {
   const { active, recovered, deaths, todayCases, todayRecovered, todayDeaths } =
     props;
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-600 dark:bg-opacity-40 min-h-screen">
       <div
-        class="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
+        className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
         style={{ maxWidth: 830 }}
       >
         <div className="flex items-center justify-between mx-auto ">
