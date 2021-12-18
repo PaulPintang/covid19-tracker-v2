@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CountUp from "react-countup";
 import axios from "axios";
 import virusLg from "../assets/images/virus-lg.svg";
 
@@ -26,7 +27,14 @@ const Content = () => {
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-5xl">
-            Total Cases: <span>{total}</span>
+            Total Cases:
+            <span>
+              <CountUp
+                end={total}
+                duration={1.5}
+                formattingFn={(total) => total.toLocaleString()}
+              />
+            </span>
           </h1>
           <div>
             <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
