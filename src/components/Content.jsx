@@ -6,7 +6,7 @@ const Content = (props) => {
   return (
     <div
       className="flex items-center justify-between"
-      style={{ height: "calc(100vh - 7rem)" }}
+      style={{ height: "calc(80vh - 7rem)" }}
     >
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
