@@ -7,11 +7,22 @@ import Summary from "./components/Summary";
 
 function App() {
   const [data, setData] = useState([]);
+  const [continent, setContinent] = useState([]);
   useEffect(() => {
+    // all
     axios
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
         setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // by continent, use in option tag
+    axios
+      .get("https://disease.sh/v3/covid-19/continents")
+      .then((res) => {
+        setContinent(res.continent);
       })
       .catch((err) => {
         console.log(err);

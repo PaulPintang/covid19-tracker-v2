@@ -7,7 +7,7 @@ const Summary = (props) => {
   const { active, recovered, deaths, todayCases, todayRecovered, todayDeaths } =
     props;
   return (
-    <div className="bg-gray-50 dark:bg-gray-600 dark:bg-opacity-40 min-h-screen">
+    <div className="bg-gray-100 dark:bg-gray-600 dark:bg-opacity-40 min-h-screen">
       <div
         className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
         style={{ maxWidth: 830 }}
@@ -19,9 +19,19 @@ const Summary = (props) => {
             </div>
             <div>
               <p className="text-gray-500 text-sm">Status</p>
-              <p className="font-semiboldtext-gray-800 dark:text-gray-300">
-                Global
-              </p>
+              <select
+                name=""
+                id=""
+                className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white focus:outline-none pr-3"
+                style={{ paddingBottom: 2 }}
+              >
+                <option value="" cka>
+                  Global
+                </option>
+                <option value="">Asia</option>
+                <option value="">America</option>
+                <option value="">Europe</option>
+              </select>
             </div>
           </div>
           <div className="flex items-center gap-3">
