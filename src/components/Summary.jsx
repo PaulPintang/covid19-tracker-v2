@@ -4,8 +4,15 @@ import virus from "../assets/images/virus-sm.png";
 
 const Summary = (props) => {
   // destructure props
-  const { active, recovered, deaths, todayCases, todayRecovered, todayDeaths } =
-    props;
+  const {
+    active,
+    recovered,
+    deaths,
+    todayCases,
+    todayRecovered,
+    todayDeaths,
+    items,
+  } = props;
   return (
     <div className="bg-gray-100 dark:bg-gray-600 dark:bg-opacity-40 min-h-screen">
       <div
@@ -25,12 +32,11 @@ const Summary = (props) => {
                 className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white focus:outline-none pr-3"
                 style={{ paddingBottom: 2 }}
               >
-                <option value="" cka>
-                  Global
-                </option>
-                <option value="">Asia</option>
-                <option value="">America</option>
-                <option value="">Europe</option>
+                {items.map((item) => (
+                  <option key={item.id} value={item.continent}>
+                    {item.continent}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

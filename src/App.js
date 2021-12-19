@@ -23,14 +23,13 @@ function App() {
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
         setContinent(res.data);
-        console.log(res.data[0].active);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // initialize data from the API
+  // initialize data from the API = ALL Cases
   const total = data.cases;
   const active = data.active;
   const recovered = data.recovered;
@@ -38,6 +37,7 @@ function App() {
   const todayCases = data.todayCases;
   const todayRecovered = data.todayRecovered;
   const todayDeaths = data.todayDeaths;
+
   return (
     <React.Fragment>
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
@@ -51,6 +51,7 @@ function App() {
         todayCases={todayCases}
         todayRecovered={todayRecovered}
         todayDeaths={todayDeaths}
+        items={continent}
       />
     </React.Fragment>
   );
