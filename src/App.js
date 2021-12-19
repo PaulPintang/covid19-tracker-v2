@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState([]);
   const [continent, setContinent] = useState([]);
   useEffect(() => {
-    // all
+    // all cases
     axios
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
@@ -22,7 +22,8 @@ function App() {
     axios
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
-        setContinent(res.continent);
+        setContinent(res.data);
+        console.log(res.data[0].active);
       })
       .catch((err) => {
         console.log(err);
@@ -30,13 +31,13 @@ function App() {
   }, []);
 
   // initialize data from the API
-  let total = data.cases;
-  let active = data.active;
-  let recovered = data.recovered;
-  let deaths = data.deaths;
-  let todayCases = data.todayCases;
-  let todayRecovered = data.todayRecovered;
-  let todayDeaths = data.todayDeaths;
+  const total = data.cases;
+  const active = data.active;
+  const recovered = data.recovered;
+  const deaths = data.deaths;
+  const todayCases = data.todayCases;
+  const todayRecovered = data.todayRecovered;
+  const todayDeaths = data.todayDeaths;
   return (
     <React.Fragment>
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
