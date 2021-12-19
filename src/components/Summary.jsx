@@ -29,11 +29,18 @@ const Summary = (props) => {
               <select
                 name=""
                 id=""
-                className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white focus:outline-none pr-3"
+                className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none"
                 style={{ paddingBottom: 2 }}
               >
+                <option className="dark:bg-gray-800" value="">
+                  Global
+                </option>
                 {items.map((item) => (
-                  <option key={item.id} value={item.continent}>
+                  <option
+                    className="dark:bg-gray-800"
+                    key={item.id}
+                    value={item.continent}
+                  >
                     {item.continent}
                   </option>
                 ))}
