@@ -4,6 +4,7 @@ import "./App.css";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
+import Status from "./components/Status";
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,7 +24,6 @@ function App() {
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
         setContinent(res.data);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -41,9 +41,11 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-        <Header />
-        <Content total={total} />
+      <div className="bg-white dark:bg-gray-900 transition-all">
+        <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+          <Header />
+          <Content total={total} />
+        </div>
       </div>
       <Summary
         active={active}
@@ -52,8 +54,11 @@ function App() {
         todayCases={todayCases}
         todayRecovered={todayRecovered}
         todayDeaths={todayDeaths}
-        items={continent}
+        continents={continent}
       />
+      <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+        <Status />
+      </div>
     </React.Fragment>
   );
 }
