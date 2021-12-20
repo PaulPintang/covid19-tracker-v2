@@ -3,7 +3,7 @@ import React from "react";
 const Status = (props) => {
   const { countries } = props;
   return (
-    <div className="bg-white mb-20">
+    <div className="bg-white dark:bg-gray-800 mb-20 rounded-md">
       {/* <div className="flex justify-between items-center pb-2">
         <h1 className="font-medium text-gray-700  " styke="top:40px">
           BUPC <span className="text-yellow-400">Events</span>
@@ -25,17 +25,17 @@ const Status = (props) => {
       </div> */}
       <div className="overflow-y-auto example">
         <table className="min-w-full divide-y divide-gray-200 border-collapse w-full">
-          <thead className="sticky top-0">
+          <thead className="sticky top-0 ">
             <tr>
               <th
                 scope="col"
-                className="md:px-6 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm"
+                className="md:px-6 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm rounded-md"
               >
                 Countries
               </th>
               <th
                 scope="col"
-                className="hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm"
+                className="hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm"
               >
                 Total Cases
               </th>
@@ -65,7 +65,7 @@ const Status = (props) => {
               </th>
               <th
                 scope="col"
-                className=" hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm"
+                className="rounded-md hidden md:table-cell lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm"
               >
                 Today Deaths
               </th>
@@ -74,7 +74,7 @@ const Status = (props) => {
           <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
             {countries.map((country) => (
               <tr>
-                <td class="py-2 px-6">
+                <td class="py-2 pl-6">
                   <div className="flex items-center gap-3">
                     <div class="w-7">
                       <img
@@ -88,6 +88,7 @@ const Status = (props) => {
                     </p>
                   </div>
                 </td>
+                <td>{country.cases}</td>
               </tr>
             ))}
           </tbody>
