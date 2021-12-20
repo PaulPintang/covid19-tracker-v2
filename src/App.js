@@ -9,6 +9,7 @@ import Status from "./components/Status";
 function App() {
   const [data, setData] = useState([]);
   const [continent, setContinent] = useState([]);
+  const [countries, setCountries] = useState([]);
   useEffect(() => {
     // all cases
     axios
@@ -28,6 +29,15 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    // by countries
+    axios
+      .get("https://disease.sh/v3/covid-19/countries")
+      .then((res) => {
+        setCountries(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   // initialize data from the API = ALL Cases
@@ -38,7 +48,6 @@ function App() {
   const todayCases = data.todayCases;
   const todayRecovered = data.todayRecovered;
   const todayDeaths = data.todayDeaths;
-
   return (
     <React.Fragment>
       <div className="bg-white dark:bg-gray-900 transition-all">
@@ -57,7 +66,7 @@ function App() {
         continents={continent}
       />
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-        <Status />
+        <Status countries={countries} />
       </div>
     </React.Fragment>
   );
