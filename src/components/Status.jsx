@@ -89,6 +89,11 @@ const Status = (props) => {
                   </div>
                 </td>
                 <td>{country.cases}</td>
+                <td>{country.active}</td>
+                <td>{country.recovered}</td>
+                <td>{country.todayRecovered}</td>
+                <td>{country.deaths}</td>
+                <td>{country.todayDeaths}</td>
               </tr>
             ))}
           </tbody>
