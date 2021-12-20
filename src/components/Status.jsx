@@ -74,7 +74,20 @@ const Status = (props) => {
           <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
             {countries.map((country) => (
               <tr>
-                <td class="py-2 px-6 uppercase">{country.country}</td>
+                <td class="py-2 px-6">
+                  <div className="flex items-center gap-3">
+                    <div class="w-7">
+                      <img
+                        src={country.countryInfo.flag}
+                        alt=""
+                        class="w-full rounded-md"
+                      />
+                    </div>
+                    <p className="font-medium uppercase text-sm">
+                      {country.country}
+                    </p>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
