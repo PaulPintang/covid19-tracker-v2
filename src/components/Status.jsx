@@ -72,30 +72,33 @@ const Status = (props) => {
             </tr>
           </thead>
           <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
-            {countries.map((country) => (
-              <tr>
-                <td class="py-2 pl-6">
-                  <div className="flex items-center gap-3">
-                    <div class="w-7">
-                      <img
-                        src={country.countryInfo.flag}
-                        alt=""
-                        class="w-full rounded-md"
-                      />
+            {countries
+              .sort((a, b) => b - a)
+              .slice(0, 5)
+              .map((country) => (
+                <tr>
+                  <td class="py-2 pl-6">
+                    <div className="flex items-center gap-3">
+                      <div class="w-7">
+                        <img
+                          src={country.countryInfo.flag}
+                          alt=""
+                          class="w-full rounded-md"
+                        />
+                      </div>
+                      <p className="font-medium uppercase text-sm">
+                        {country.country}
+                      </p>
                     </div>
-                    <p className="font-medium uppercase text-sm">
-                      {country.country}
-                    </p>
-                  </div>
-                </td>
-                <td>{country.cases}</td>
-                <td>{country.active}</td>
-                <td>{country.recovered}</td>
-                <td>{country.todayRecovered}</td>
-                <td>{country.deaths}</td>
-                <td>{country.todayDeaths}</td>
-              </tr>
-            ))}
+                  </td>
+                  <td>{country.cases}</td>
+                  <td>{country.active}</td>
+                  <td>{country.recovered}</td>
+                  <td>{country.todayRecovered}</td>
+                  <td>{country.deaths}</td>
+                  <td>{country.todayDeaths}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
