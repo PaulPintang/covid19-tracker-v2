@@ -42,16 +42,16 @@ function App() {
       });
   }, []);
 
-  // initialize total from the API = ALL total
+  // initialize props for Content COmponent
   const totalCases = total.cases;
+  // initialize props for Summary Component
   const active = total.active;
   const recovered = total.recovered;
   const deaths = total.deaths;
   const todaytotal = total.todaytotal;
   const todayRecovered = total.todayRecovered;
   const todayDeaths = total.todayDeaths;
-  // array
-  console.log(total);
+
   return (
     <React.Fragment>
       <div className="bg-white dark:bg-gray-900 transition-all">

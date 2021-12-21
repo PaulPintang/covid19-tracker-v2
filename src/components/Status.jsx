@@ -73,7 +73,7 @@ const Status = (props) => {
           </thead>
           <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
             {countries
-              .sort((a, b) => b - a)
+              .sort((a, b) => b.cases - a.cases)
               .slice(0, 5)
               .map((country) => (
                 <tr>
