@@ -3,7 +3,7 @@ import React from "react";
 const Status = (props) => {
   const { countries } = props;
   return (
-    <div className="bg-white dark:bg-gray-800 mb-20 rounded-md">
+    <div className="bg-white dark:bg-gray-800 mb-20 rounded-md p-2">
       <div class="overflow-y-auto ">
         <table className="min-w-full  border-collapse w-full border-none">
           <thead className="sticky top-0 z-100 ">
@@ -52,7 +52,7 @@ const Status = (props) => {
               </th>
               <th
                 scope="col"
-                className="hidden md:table-cell lg:table-cell px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tr-md"
+                className="py-3  text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tr-md"
               >
                 Today Deaths
               </th>
@@ -84,8 +84,8 @@ const Status = (props) => {
                   <td className="dark:text-gray-400 py-2">
                     {country.active.toLocaleString()}
                   </td>
-                  <td className="dark:text-gray-400 py-2">
-                    {country.todayCases.toLocaleString()}
+                  <td className="text-yellow-300  py-2">
+                    + {country.todayCases.toLocaleString()}
                   </td>
                   <td className="dark:text-gray-400 py-2 ">
                     {country.recovered.toLocaleString()}
@@ -96,7 +96,7 @@ const Status = (props) => {
                   <td className="dark:text-gray-400 py-2 ">
                     {country.deaths.toLocaleString()}
                   </td>
-                  <td className=" text-red-300 py-2 pl-3">
+                  <td className=" text-red-300 py-2 pl-6">
                     + {country.todayDeaths.toLocaleString()}
                   </td>
                 </tr>
