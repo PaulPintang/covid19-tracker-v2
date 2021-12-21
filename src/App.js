@@ -48,7 +48,7 @@ function App() {
   const active = total.active;
   const recovered = total.recovered;
   const deaths = total.deaths;
-  const todaytotal = total.todaytotal;
+  const todayCases = total.todayCases;
   const todayRecovered = total.todayRecovered;
   const todayDeaths = total.todayDeaths;
 
@@ -64,7 +64,7 @@ function App() {
         active={active}
         recovered={recovered}
         deaths={deaths}
-        todaytotal={todaytotal}
+        todayCases={todayCases}
         todayRecovered={todayRecovered}
         todayDeaths={todayDeaths}
         continents={continent}
