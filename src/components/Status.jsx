@@ -22,25 +22,31 @@ const Status = (props) => {
               </th>
               <th
                 scope="col"
-                className="hidden md:table-cell lg:table-cell px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                className="hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
                 Active Cases
               </th>
               <th
                 scope="col"
-                className=" hidden md:table-cell lg:table-cell px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                className="hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+              >
+                Today Cases
+              </th>
+              <th
+                scope="col"
+                className=" hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
                 Recovered
               </th>
               <th
                 scope="col"
-                className=" hidden md:table-cell lg:table-cell px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
                 Today Recovered
               </th>
               <th
                 scope="col"
-                className=" hidden md:table-cell lg:table-cell px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
                 Deaths
               </th>
@@ -75,16 +81,19 @@ const Status = (props) => {
                   <td className="dark:text-gray-400 py-2">
                     {country.cases.toLocaleString()}
                   </td>
-                  <td className="dark:text-gray-400 py-2 pl-3">
+                  <td className="dark:text-gray-400 py-2">
                     {country.active.toLocaleString()}
                   </td>
-                  <td className="dark:text-gray-400 py-2 pl-3">
+                  <td className="dark:text-gray-400 py-2">
+                    {country.todayCases.toLocaleString()}
+                  </td>
+                  <td className="dark:text-gray-400 py-2 ">
                     {country.recovered.toLocaleString()}
                   </td>
                   <td className="text-green-300 py-2 pl-3">
                     + {country.todayRecovered.toLocaleString()}
                   </td>
-                  <td className="dark:text-gray-400 py-2 pl-3">
+                  <td className="dark:text-gray-400 py-2 ">
                     {country.deaths.toLocaleString()}
                   </td>
                   <td className=" text-red-300 py-2 pl-3">
