@@ -8,15 +8,15 @@ import Summary from "./components/Summary";
 import Status from "./components/Status";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [total, setTotal] = useState([]);
   const [continent, setContinent] = useState([]);
   const [countries, setCountries] = useState([]);
   useEffect(() => {
-    // all cases
+    // all total
     axios
       .get("https://disease.sh/v3/covid-19/all")
       .then((res) => {
-        setData(res.data);
+        setTotal(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -35,34 +35,36 @@ function App() {
       .get("https://disease.sh/v3/covid-19/countries")
       .then((res) => {
         setCountries(res.data);
-        console.log(res);
+        console.log(countries);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  // initialize data from the API = ALL Cases
-  const total = data.cases;
-  const active = data.active;
-  const recovered = data.recovered;
-  const deaths = data.deaths;
-  const todayCases = data.todayCases;
-  const todayRecovered = data.todayRecovered;
-  const todayDeaths = data.todayDeaths;
+  // initialize total from the API = ALL total
+  const totalCases = total.cases;
+  const active = total.active;
+  const recovered = total.recovered;
+  const deaths = total.deaths;
+  const todaytotal = total.todaytotal;
+  const todayRecovered = total.todayRecovered;
+  const todayDeaths = total.todayDeaths;
+  // array
+  console.log(total);
   return (
     <React.Fragment>
       <div className="bg-white dark:bg-gray-900 transition-all">
         <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
           <Header />
-          <Content total={total} />
+          <Content totalCases={totalCases} />
         </div>
       </div>
       <Summary
         active={active}
         recovered={recovered}
         deaths={deaths}
-        todayCases={todayCases}
+        todaytotal={todaytotal}
         todayRecovered={todayRecovered}
         todayDeaths={todayDeaths}
         continents={continent}

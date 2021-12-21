@@ -14,9 +14,9 @@ const Content = (props) => {
             Total Cases:
             <span className="pl-3">
               <CountUp
-                end={props.total}
+                end={props.totalCases}
                 duration={1.5}
-                formattingFn={(total) => total.toLocaleString()}
+                formattingFn={(totalCases) => totalCases.toLocaleString()}
               />
             </span>
           </h1>
