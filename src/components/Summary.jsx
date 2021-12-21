@@ -3,16 +3,8 @@ import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
 const Summary = (props) => {
-  // destructure props
-  const {
-    active,
-    recovered,
-    deaths,
-    todayCases,
-    todayRecovered,
-    todayDeaths,
-    continents,
-  } = props;
+  // destructure array as props
+  const { continents, total } = props;
   return (
     <div
       className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
@@ -54,13 +46,13 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={active}
+                end={total.active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-yellow-300 text-sm">
-              + {todayCases} today
+              + {total.todayCases} today
             </small>
           </div>
         </div>
@@ -72,13 +64,13 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Recovered</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={recovered}
+                end={total.recovered}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-green-300 text-sm">
-              + {todayRecovered} today
+              + {total.todayRecovered} today
             </small>
           </div>
         </div>
@@ -90,13 +82,13 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Deaths</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={deaths}
+                end={total.deaths}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-red-300 text-sm">
-              + {todayDeaths} today
+              + {total.todayDeaths} today
             </small>
           </div>
         </div>

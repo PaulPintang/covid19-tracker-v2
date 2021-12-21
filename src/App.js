@@ -44,13 +44,6 @@ function App() {
 
   // initialize props for Content COmponent
   const totalCases = total.cases;
-  // initialize props for Summary Component
-  const active = total.active;
-  const recovered = total.recovered;
-  const deaths = total.deaths;
-  const todayCases = total.todayCases;
-  const todayRecovered = total.todayRecovered;
-  const todayDeaths = total.todayDeaths;
 
   return (
     <React.Fragment>
@@ -60,15 +53,7 @@ function App() {
           <Content totalCases={totalCases} />
         </div>
       </div>
-      <Summary
-        active={active}
-        recovered={recovered}
-        deaths={deaths}
-        todayCases={todayCases}
-        todayRecovered={todayRecovered}
-        todayDeaths={todayDeaths}
-        continents={continent}
-      />
+      <Summary continents={continent} total={total} />
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
         <Status countries={countries} />
       </div>
