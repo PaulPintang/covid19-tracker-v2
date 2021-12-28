@@ -6,6 +6,7 @@ import Content from "./components/Content";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Status from "./components/Status";
+import Footer from "./components/Footer";
 
 function App() {
   const [total, setTotal] = useState([]);
@@ -57,6 +58,7 @@ function App() {
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
         <Status countries={countries} />
       </div>
+      <Footer />
     </React.Fragment>
   );
 }
