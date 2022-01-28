@@ -27,6 +27,7 @@ function App() {
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
         setContinent(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +37,6 @@ function App() {
       .get("https://disease.sh/v3/covid-19/countries")
       .then((res) => {
         setCountries(res.data);
-        console.log(countries);
       })
       .catch((err) => {
         console.log(err);

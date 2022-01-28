@@ -5,6 +5,9 @@ import virus from "../assets/images/virus-sm.png";
 const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
+  const handleContinent = () => {
+    console.log("sadasd");
+  };
   return (
     <div
       className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
@@ -22,6 +25,7 @@ const Summary = (props) => {
               id=""
               className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none cursor-pointer"
               style={{ paddingBottom: 2 }}
+              onChange={handleContinent}
             >
               <option className="dark:bg-gray-800" value="">
                 Global
