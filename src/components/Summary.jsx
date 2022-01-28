@@ -38,7 +38,7 @@ const Summary = (props) => {
                 <option
                   className="dark:bg-gray-800"
                   key={item.length}
-                  value={item.deaths}
+                  value={[item.active, item.recovered, item.deaths]}
                 >
                   {item.continent}
                 </option>
