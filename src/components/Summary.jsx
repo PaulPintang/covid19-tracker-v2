@@ -6,7 +6,7 @@ import virus from "../assets/images/virus-sm.png";
 const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
-  const [select, setSelect] = useState("Global");
+  const [select, setSelect] = useState([]);
 
   const handler = (e) => {
     setSelect(e.target.value);
@@ -38,7 +38,11 @@ const Summary = (props) => {
                 <option
                   className="dark:bg-gray-800"
                   key={item.length}
-                  value={[item.active, item.recovered, item.deaths]}
+                  value={[
+                    { id: 0, active: item.active },
+                    { id: 1, rec: item.recovered },
+                    { id: 2, deaths: item.deaths },
+                  ]}
                 >
                   {item.continent}
                 </option>
@@ -65,6 +69,9 @@ const Summary = (props) => {
             </small>
           </div>
         </div>
+        {/* {select.map((item) => (
+          <p>{item.length}</p>
+        ))} */}
         <div className="flex items-center gap-3">
           <div className="w-12">
             <img src={virus} alt="" />
