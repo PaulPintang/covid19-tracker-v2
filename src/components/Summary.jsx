@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
 const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
-  const handleContinent = () => {
-    console.log("sadasd");
+  const [select, setSelect] = useState("");
+
+  const handler = (e) => {
+    setSelect(e.target.value);
+    console.log(select);
   };
   return (
     <div
@@ -20,16 +23,15 @@ const Summary = (props) => {
           </div>
           <div>
             <p className="text-gray-500 text-sm">Status</p>
+            <p>{select}</p>
             <select
               name=""
               id=""
               className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none cursor-pointer"
               style={{ paddingBottom: 2 }}
-              onChange={handleContinent}
+              value={select}
+              onChange={handler}
             >
-              <option className="dark:bg-gray-800" value="">
-                Global
-              </option>
               {continents.map((item) => (
                 <option
                   className="dark:bg-gray-800"
