@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
@@ -5,11 +6,10 @@ import virus from "../assets/images/virus-sm.png";
 const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState("Global");
 
   const handler = (e) => {
     setSelect(e.target.value);
-    console.log(select);
   };
   return (
     <div
@@ -23,7 +23,6 @@ const Summary = (props) => {
           </div>
           <div>
             <p className="text-gray-500 text-sm">Status</p>
-            <p>{select}</p>
             <select
               name=""
               id=""
@@ -32,6 +31,9 @@ const Summary = (props) => {
               value={select}
               onChange={handler}
             >
+              <option className="dark:bg-gray-800" value="Global">
+                Global
+              </option>
               {continents.map((item) => (
                 <option
                   className="dark:bg-gray-800"
@@ -51,11 +53,12 @@ const Summary = (props) => {
           <div>
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
-              <CountUp
+              {/* <CountUp
                 end={total.active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
-              />
+              /> */}
+              {select}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
