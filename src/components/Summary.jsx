@@ -6,12 +6,18 @@ const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
   // state
-  const [continentData, setContinentData] = useState([]);
+  const [continentData, setContinentData] = useState([
+    {
+      id: 1,
+      name: "Joe",
+      type: "admin",
+    },
+  ]);
 
   const handler = (e) => {
     setContinentData(e.target.value);
   };
-  console.log();
+  console.log(continentData);
   return (
     <div
       className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
@@ -27,6 +33,7 @@ const Summary = (props) => {
             <select
               name=""
               id=""
+              multiple={false}
               className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none cursor-pointer"
               style={{ paddingBottom: 2 }}
               value={continentData}
@@ -39,7 +46,11 @@ const Summary = (props) => {
                 <option
                   className="dark:bg-gray-800"
                   key={item.length}
-                  value={([{ active: item.active }], [{ rec: item.recovered }])}
+                  value={{
+                    active: item.active,
+                    recovered: item.recovered,
+                    deaths: item.deaths,
+                  }}
                 >
                   {item.continent}
                 </option>
@@ -47,6 +58,7 @@ const Summary = (props) => {
             </select>
           </div>
         </div>
+
         <div className="flex items-center gap-3">
           <div className="w-12">
             <img src={virus} alt="" />
@@ -55,20 +67,25 @@ const Summary = (props) => {
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               {/* <CountUp
-                end={total.active}
+                end={continentData}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               /> */}
-              {continentData}
+              {/* {continentData.map((item) => (
+                <div>
+                  <p>{item.active}</p>
+                  <p>{item.recovered}</p>
+                  <p>{item.deaths}</p>
+                </div>
+              ))} */}
+              {continentData.name}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
             </small>
           </div>
         </div>
-        {/* {select.map((select) => (
-          <p>{select.title}</p>
-        ))} */}
+
         <div className="flex items-center gap-3">
           <div className="w-12">
             <img src={virus} alt="" />
@@ -87,6 +104,7 @@ const Summary = (props) => {
             </small>
           </div>
         </div>
+
         <div className="flex items-center gap-3">
           <div className="w-12">
             <img src={virus} alt="" />
