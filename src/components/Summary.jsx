@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import React, { useState } from "react";
 import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
@@ -6,11 +5,13 @@ import virus from "../assets/images/virus-sm.png";
 const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
-  const [select, setSelect] = useState([]);
+  // state
+  const [continentData, setContinentData] = useState([]);
 
   const handler = (e) => {
-    setSelect(e.target.value);
+    setContinentData(e.target.value);
   };
+  console.log();
   return (
     <div
       className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
@@ -28,7 +29,7 @@ const Summary = (props) => {
               id=""
               className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none cursor-pointer"
               style={{ paddingBottom: 2 }}
-              value={select}
+              value={continentData}
               onChange={handler}
             >
               <option className="dark:bg-gray-800" value="Global">
@@ -38,11 +39,7 @@ const Summary = (props) => {
                 <option
                   className="dark:bg-gray-800"
                   key={item.length}
-                  value={[
-                    { id: 0, active: item.active },
-                    { id: 1, rec: item.recovered },
-                    { id: 2, deaths: item.deaths },
-                  ]}
+                  value={([{ active: item.active }], [{ rec: item.recovered }])}
                 >
                   {item.continent}
                 </option>
@@ -62,15 +59,15 @@ const Summary = (props) => {
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               /> */}
-              {select}
+              {continentData}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
             </small>
           </div>
         </div>
-        {/* {select.map((item) => (
-          <p>{item.length}</p>
+        {/* {select.map((select) => (
+          <p>{select.title}</p>
         ))} */}
         <div className="flex items-center gap-3">
           <div className="w-12">
