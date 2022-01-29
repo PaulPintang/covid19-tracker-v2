@@ -6,16 +6,15 @@ const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
   // state
-  const [continentData, setContinentData] = useState([
-    {
-      id: 1,
-      name: "Joe",
-      type: "admin",
-    },
-  ]);
+  const [continentData, setContinentData] = useState([]);
+  // {
+  //   id: 1,
+  //   name: "Joe",
+  //   type: "admin",
+  // },
 
   const handler = (e) => {
-    setContinentData(e.target.value);
+    setContinentData([...continentData, e.target.value]);
   };
   console.log(continentData);
   return (
@@ -47,6 +46,7 @@ const Summary = (props) => {
                   className="dark:bg-gray-800"
                   key={item.length}
                   value={{
+                    id: 1,
                     active: item.active,
                     recovered: item.recovered,
                     deaths: item.deaths,
@@ -71,14 +71,14 @@ const Summary = (props) => {
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               /> */}
-              {/* {continentData.map((item) => (
-                <div>
-                  <p>{item.active}</p>
-                  <p>{item.recovered}</p>
-                  <p>{item.deaths}</p>
+              {continentData.map((data) => (
+                <div key={data.id}>
+                  <p>{data.active}</p>
+                  <p>{data.recovered}</p>
+                  <p>{data.deaths}</p>
                 </div>
-              ))} */}
-              {continentData.name}
+              ))}
+              {/* {continentData.name} */}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
