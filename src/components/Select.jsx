@@ -6,7 +6,11 @@ const Select = () => {
       <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
       <div className="flex justify-between">
         <div>
-          <input type="text" />
+          <input
+            className="px-3 py-3 w-96 rounded-sm text-sm focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
+            type="text"
+            placeholder="Search for a Country"
+          />
         </div>
         <div>
           <select name="" id="">
