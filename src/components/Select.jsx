@@ -13,8 +13,14 @@ const Select = () => {
           />
         </div>
         <div>
-          <select name="" id="">
-            <option value="">Filter by Region</option>
+          <select
+            className="px-4 text-gray-600 py-3 w-full rounded-md text-sm focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm bg-white"
+            name=""
+            id=""
+          >
+            <option className="bg-white shadow-sm" value="">
+              Filter by Region
+            </option>
             <option value=""></option>
             <option value=""></option>
             <option value=""></option>
