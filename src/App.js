@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Status from "./components/Status";
 import Footer from "./components/Footer";
-import Select from "./components/Select";
+import SelectCountry from "./components/Select";
 
 function App() {
   const [total, setTotal] = useState([]);
@@ -58,7 +58,7 @@ function App() {
       <Summary continents={continent} total={total} />
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
         <Status countries={countries} />
-        <Select />
+        <SelectCountry />
       </div>
       <Footer />
     </React.Fragment>

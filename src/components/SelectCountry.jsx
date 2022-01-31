@@ -1,4 +1,11 @@
 import React from "react";
+// import Select from "react-select";
+
+const options = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
 
 const Select = () => {
   return (
@@ -13,7 +20,7 @@ const Select = () => {
           />
         </div>
         <div>
-          <select
+          {/* <select
             className="px-4 text-gray-600 py-3 w-full rounded-md text-sm focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm bg-white"
             name=""
             id=""
@@ -24,7 +31,8 @@ const Select = () => {
             <option value=""></option>
             <option value=""></option>
             <option value=""></option>
-          </select>
+          </select> */}
+          <Select options={options} />
         </div>
       </div>
       <div className="flex w-full justify-between">
