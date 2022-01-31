@@ -61,11 +61,11 @@ const Summary = (props) => {
           <div>
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
-              {/* <CountUp
-                end={continentData}
+              <CountUp
+                end={total.active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
-              /> */}
+              />
               {/* {continentData.map((data) => (
                 <div key={data.id}>
                   <p>{data.active}</p>
@@ -73,7 +73,7 @@ const Summary = (props) => {
                   <p>{data.deaths}</p>
                 </div>
               ))} */}
-              {continentData}
+              {/* {continentData} */}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
