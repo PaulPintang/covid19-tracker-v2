@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Status from "./components/Status";
 import Footer from "./components/Footer";
-import SelectCountry from "./components/Select";
+import SelectCountry from "./components/SelectCountry";
 
 function App() {
   const [total, setTotal] = useState([]);
