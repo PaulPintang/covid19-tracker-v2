@@ -6,7 +6,7 @@ const Summary = (props) => {
   // destructure array as props
   const { continents, total } = props;
   // state
-  const [continentData, setContinentData] = useState([]);
+  const [continentData, setContinentData] = useState(0);
   // {
   //   id: 1,
   //   name: "Joe",
@@ -14,7 +14,7 @@ const Summary = (props) => {
   // },
 
   const handler = (e) => {
-    setContinentData([...continentData, e.target.value]);
+    setContinentData(e.target.value);
   };
   console.log(continentData);
   return (
@@ -45,12 +45,7 @@ const Summary = (props) => {
                 <option
                   className="dark:bg-gray-800"
                   key={item.length}
-                  value={{
-                    id: 1,
-                    active: item.active,
-                    recovered: item.recovered,
-                    deaths: item.deaths,
-                  }}
+                  value={(item.active, item.recovered, item.deaths)}
                 >
                   {item.continent}
                 </option>
@@ -71,14 +66,14 @@ const Summary = (props) => {
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               /> */}
-              {continentData.map((data) => (
+              {/* {continentData.map((data) => (
                 <div key={data.id}>
                   <p>{data.active}</p>
                   <p>{data.recovered}</p>
                   <p>{data.deaths}</p>
                 </div>
-              ))}
-              {/* {continentData.name} */}
+              ))} */}
+              {continentData}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today
