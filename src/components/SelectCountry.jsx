@@ -2,7 +2,7 @@ import React from "react";
 
 const SelectCountry = () => {
   return (
-    <div>
+    <div className="pb-20">
       <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
       <div className="flex justify-between">
         <div>
@@ -16,7 +16,7 @@ const SelectCountry = () => {
           <div>
             <button
               type="button"
-              class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30"
+              class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
               id="menu-button"
               aria-expanded="true"
               aria-haspopup="true"
@@ -59,10 +59,7 @@ const SelectCountry = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-between">
-        <div className="selection">test</div>
-        <div className="content">test</div>
-      </div>
+      <div className="flex w-full justify-between"></div>
     </div>
   );
 };
