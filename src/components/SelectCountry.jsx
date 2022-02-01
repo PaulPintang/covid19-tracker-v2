@@ -3,6 +3,9 @@ import React, { useState } from "react";
 const SelectCountry = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
+  const handleClick = () => {
+    setOptions(!options);
+  };
   const { countries } = props;
   return (
     <div className="pb-20">
@@ -43,7 +46,7 @@ const SelectCountry = (props) => {
           </div>
 
           <div
-            class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
@@ -57,7 +60,25 @@ const SelectCountry = (props) => {
                 tabindex="-1"
                 id="menu-item-0"
               >
-                Account settings
+                Option 1
+              </a>
+              <a
+                href="#"
+                class="text-gray-700 block px-4 py-2 text-sm"
+                role="menuitem"
+                tabindex="-1"
+                id="menu-item-0"
+              >
+                Option 2
+              </a>
+              <a
+                href="#"
+                class="text-gray-700 block px-4 py-2 text-sm"
+                role="menuitem"
+                tabindex="-1"
+                id="menu-item-0"
+              >
+                Option 3
               </a>
             </div>
           </div>
