@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SelectCountry = (props) => {
+  // state for dropdown
+  const [options, setOptions] = useState(false);
   const { countries } = props;
   return (
     <div className="pb-20">
@@ -16,6 +18,7 @@ const SelectCountry = (props) => {
         <div class="relative inline-block text-left">
           <div>
             <button
+              onClick={handleClick}
               type="button"
               class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
               id="menu-button"
