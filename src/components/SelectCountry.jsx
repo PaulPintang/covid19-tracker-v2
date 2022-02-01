@@ -7,7 +7,7 @@ const SelectCountry = () => {
       <div className="flex justify-between">
         <div>
           <input
-            className="px-3 py-3 w-96 rounded-md text-sm focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
+            className="px-3 py-3 w-96 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
             type="text"
             placeholder="Search for a Country"
           />
