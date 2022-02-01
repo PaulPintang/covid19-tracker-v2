@@ -67,25 +67,32 @@ const SelectCountry = (props) => {
               <img src={country.countryInfo.flag} className="w-full " alt="" />
             </div>
             <div className="p-8">
-              <h1 className="text-4xl">{country.country}</h1>
+              <h1 className="text-4xl dark:text-white">{country.country}</h1>
               <p>
-                <span className="">Continent: </span>
-                <span className="text-gray-600"> {country.continent}</span>
+                <span className="dark:text-white">Continent: </span>
+                <span className="text-gray-600 dark:text-gray-400">
+                  {" "}
+                  {country.continent}
+                </span>
               </p>
               <div className="flex gap-28">
                 <div>
-                  <h1 className="pt-4 font-bold">Covid-19 Cases</h1>
+                  <h1 className="pt-4 font-bold dark:text-gray-100">
+                    Covid-19 Cases
+                  </h1>
                   <p>
-                    <span className="">Total Cases:</span>
-                    <span className="text-gray-600">
+                    <span className="dark:text-white">Total Cases: </span>
+                    <span className="text-gray-600 dark:text-gray-400">
                       {country.cases.toLocaleString()}
                     </span>
                   </p>
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-yellow-300 w-8 h-2"></div>
-                      <span className="">Total Active Cases:</span>
-                      <span className="text-gray-600">
+                      <span className="dark:text-white">
+                        Total Active Cases:
+                      </span>
+                      <span className="text-gray-600 dark:text-gray-400">
                         {country.active.toLocaleString()}
                       </span>
                     </div>
@@ -93,8 +100,10 @@ const SelectCountry = (props) => {
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-green-300 w-8 h-2"></div>
-                      <span className="">Total Recoveries: </span>
-                      <span className="text-gray-600">
+                      <span className="dark:text-white">
+                        Total Recoveries:{" "}
+                      </span>
+                      <span className="text-gray-600 dark:text-gray-400">
                         {country.recovered.toLocaleString()}
                       </span>
                     </div>
@@ -102,30 +111,34 @@ const SelectCountry = (props) => {
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-red-300 w-8 h-2"></div>
-                      <span className="">Total Deaths:</span>
-                      <span className="text-gray-600">
+                      <span className="dark:text-white">Total Deaths:</span>
+                      <span className="text-gray-600 dark:text-gray-400">
                         {country.deaths.toLocaleString()}
                       </span>
                     </div>
                   </p>
                 </div>
                 <div>
-                  <h1 className="pt-4 font-bold">Today Cases</h1>
+                  <h1 className="pt-4 font-bold dark:text-gray-100">
+                    Today Cases
+                  </h1>
                   <p>
-                    <span className="">Today Active Cases: </span>
-                    <span className="text-gray-600">
+                    <span className="dark:text-white">
+                      Today Active Cases:{" "}
+                    </span>
+                    <span className="text-gray-600 dark:text-gray-400">
                       {country.todayCases.toLocaleString()}
                     </span>
                   </p>
                   <p>
-                    <span className="">Today Recoveries: </span>
-                    <span className="text-gray-600">
+                    <span className="dark:text-white">Today Recoveries: </span>
+                    <span className="text-gray-600 dark:text-gray-400">
                       {country.todayRecovered.toLocaleString()}
                     </span>
                   </p>
                   <p>
-                    <span className="">Today Deaths: </span>
-                    <span className="text-gray-600">
+                    <span className="dark:text-white">Today Deaths: </span>
+                    <span className="text-gray-600 dark:text-gray-400">
                       {country.todayDeaths.toLocaleString()}
                     </span>
                   </p>
