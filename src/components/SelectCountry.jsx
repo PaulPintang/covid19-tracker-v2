@@ -60,11 +60,24 @@ const SelectCountry = (props) => {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-between pt-8">
+      <div className="flex w-full items-center gap-9 pt-8">
         {countries.slice(0, 1).map((country) => (
-          <div className="w-80">
-            <img src={country.countryInfo.flag} className="w-full " alt="" />
-          </div>
+          <>
+            <div className="w-96">
+              <img src={country.countryInfo.flag} className="w-full " alt="" />
+            </div>
+            <div className="space-y-1">
+              <h1>{country.country}</h1>
+              <p>Continent: {country.continent}</p>
+              <h1>Summary of Covid-19 Cases</h1>
+              <div>
+                <p>Total Cases: {country.cases}</p>
+                <p>Total Active Cases: {country.active}</p>
+                <p>Total Recoveries: {country.recovered}</p>
+                <p>Total Deaths: {country.deaths}</p>
+              </div>
+            </div>
+          </>
         ))}
       </div>
     </div>
