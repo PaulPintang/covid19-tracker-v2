@@ -60,7 +60,7 @@ const SelectCountry = (props) => {
           </div>
         </div>
       </div>
-      <div className="flex w-full items-center gap-10 pt-8">
+      <div className="flex w-full items-center gap-12 pt-8">
         {countries.slice(0, 1).map((country) => (
           <>
             <div className="w-96">
@@ -112,7 +112,7 @@ const SelectCountry = (props) => {
                 <div>
                   <h1 className="pt-4 font-bold">Today Cases</h1>
                   <p>
-                    <span className="">Today Active Cases:</span>
+                    <span className="">Today Active Cases: </span>
                     <span className="text-gray-600">
                       {country.todayCases.toLocaleString()}
                     </span>
@@ -124,7 +124,7 @@ const SelectCountry = (props) => {
                     </span>
                   </p>
                   <p>
-                    <span className="">Today Deaths:</span>
+                    <span className="">Today Deaths: </span>
                     <span className="text-gray-600">
                       {country.todayDeaths.toLocaleString()}
                     </span>
