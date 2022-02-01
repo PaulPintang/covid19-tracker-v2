@@ -1,6 +1,7 @@
 import React from "react";
 
-const SelectCountry = () => {
+const SelectCountry = (props) => {
+  const { countries } = props;
   return (
     <div className="pb-20">
       <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
@@ -59,7 +60,13 @@ const SelectCountry = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-between"></div>
+      <div className="flex w-full justify-between pt-8">
+        {countries.slice(0, 1).map((country) => (
+          <div className="w-80">
+            <img src={country.countryInfo.flag} className="w-full " alt="" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
