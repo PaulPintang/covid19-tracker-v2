@@ -76,46 +76,58 @@ const SelectCountry = (props) => {
                 <div>
                   <h1 className="pt-4 font-bold">Covid-19 Cases</h1>
                   <p>
-                    <span className="">Total Cases:</span>{" "}
-                    <span className="text-gray-600">{country.cases}</span>
+                    <span className="">Total Cases:</span>
+                    <span className="text-gray-600">
+                      {country.cases.toLocaleString()}
+                    </span>
                   </p>
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-yellow-300 w-8 h-2"></div>
-                      <span className="">Total Active Cases:</span>{" "}
-                      <span className="text-gray-600">{country.active}</span>
+                      <span className="">Total Active Cases:</span>
+                      <span className="text-gray-600">
+                        {country.active.toLocaleString()}
+                      </span>
                     </div>
                   </p>
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-green-300 w-8 h-2"></div>
-                      <span className="">Total Recoveries: </span>{" "}
-                      <span className="text-gray-600">{country.recovered}</span>
+                      <span className="">Total Recoveries: </span>
+                      <span className="text-gray-600">
+                        {country.recovered.toLocaleString()}
+                      </span>
                     </div>
                   </p>
                   <p>
                     <div className="flex items-center gap-2">
                       <div className="bg-red-300 w-8 h-2"></div>
-                      <span className="">Total Deaths:</span>{" "}
-                      <span className="text-gray-600">{country.deaths}</span>
+                      <span className="">Total Deaths:</span>
+                      <span className="text-gray-600">
+                        {country.deaths.toLocaleString()}
+                      </span>
                     </div>
                   </p>
                 </div>
                 <div>
                   <h1 className="pt-4 font-bold">Today Cases</h1>
                   <p>
-                    <span className="">Today Active Cases:</span>{" "}
-                    <span className="text-gray-600">{country.todayCases}</span>
-                  </p>
-                  <p>
-                    <span className="">Today Recoveries: </span>{" "}
+                    <span className="">Today Active Cases:</span>
                     <span className="text-gray-600">
-                      {country.todayRecovered}
+                      {country.todayCases.toLocaleString()}
                     </span>
                   </p>
                   <p>
-                    <span className="">Today Deaths:</span>{" "}
-                    <span className="text-gray-600">{country.todayDeaths}</span>
+                    <span className="">Today Recoveries: </span>
+                    <span className="text-gray-600">
+                      {country.todayRecovered.toLocaleString()}
+                    </span>
+                  </p>
+                  <p>
+                    <span className="">Today Deaths:</span>
+                    <span className="text-gray-600">
+                      {country.todayDeaths.toLocaleString()}
+                    </span>
                   </p>
                 </div>
               </div>
