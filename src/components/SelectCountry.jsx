@@ -60,21 +60,64 @@ const SelectCountry = (props) => {
           </div>
         </div>
       </div>
-      <div className="flex w-full items-center gap-9 pt-8">
+      <div className="flex w-full items-center gap-10 pt-8">
         {countries.slice(0, 1).map((country) => (
           <>
             <div className="w-96">
               <img src={country.countryInfo.flag} className="w-full " alt="" />
             </div>
-            <div className="space-y-1">
-              <h1>{country.country}</h1>
-              <p>Continent: {country.continent}</p>
-              <h1>Summary of Covid-19 Cases</h1>
-              <div>
-                <p>Total Cases: {country.cases}</p>
-                <p>Total Active Cases: {country.active}</p>
-                <p>Total Recoveries: {country.recovered}</p>
-                <p>Total Deaths: {country.deaths}</p>
+            <div className="p-8">
+              <h1 className="text-4xl">{country.country}</h1>
+              <p>
+                <span className="">Continent: </span>
+                <span className="text-gray-600"> {country.continent}</span>
+              </p>
+              <div className="flex gap-28">
+                <div>
+                  <h1 className="pt-4 font-bold">Covid-19 Cases</h1>
+                  <p>
+                    <span className="">Total Cases:</span>{" "}
+                    <span className="text-gray-600">{country.cases}</span>
+                  </p>
+                  <p>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-yellow-300 w-8 h-2"></div>
+                      <span className="">Total Active Cases:</span>{" "}
+                      <span className="text-gray-600">{country.active}</span>
+                    </div>
+                  </p>
+                  <p>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-green-300 w-8 h-2"></div>
+                      <span className="">Total Recoveries: </span>{" "}
+                      <span className="text-gray-600">{country.recovered}</span>
+                    </div>
+                  </p>
+                  <p>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-red-300 w-8 h-2"></div>
+                      <span className="">Total Deaths:</span>{" "}
+                      <span className="text-gray-600">{country.deaths}</span>
+                    </div>
+                  </p>
+                </div>
+                <div>
+                  <h1 className="pt-4 font-bold">Today Cases</h1>
+                  <p>
+                    <span className="">Today Active Cases:</span>{" "}
+                    <span className="text-gray-600">{country.todayCases}</span>
+                  </p>
+                  <p>
+                    <span className="">Today Recoveries: </span>{" "}
+                    <span className="text-gray-600">
+                      {country.todayRecovered}
+                    </span>
+                  </p>
+                  <p>
+                    <span className="">Today Deaths:</span>{" "}
+                    <span className="text-gray-600">{country.todayDeaths}</span>
+                  </p>
+                </div>
               </div>
             </div>
           </>
