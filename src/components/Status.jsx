@@ -62,8 +62,8 @@ const Status = (props) => {
             {countries
               .sort((a, b) => b.cases - a.cases)
               .slice(0, 5)
-              .map((country) => (
-                <tr className="border-none">
+              .map((country, i) => (
+                <tr key={i} className="border-none">
                   <td className="py-2 pl-3  border-none">
                     <div className="flex items-center gap-3">
                       <div class="w-7">

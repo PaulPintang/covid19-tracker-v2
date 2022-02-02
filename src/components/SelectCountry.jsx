@@ -5,13 +5,17 @@ const SelectCountry = (props) => {
   const [options, setOptions] = useState(false);
   const [country, setCountry] = useState(false);
   const [selected, setSelected] = useState("Filter by Region");
+  // for selecting continent
   const handleClick = () => {
     setOptions(!options);
   };
+  // for selecting country
   const selectCountry = () => {
     setCountry(!country);
   };
+  //
   const handleSelect = (e) => {
+    // continent
     setSelected(e.target.value);
     setOptions(!options);
   };
@@ -36,7 +40,7 @@ const SelectCountry = (props) => {
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-                {selected}
+                Philippines
                 <svg
                   class="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +66,7 @@ const SelectCountry = (props) => {
             >
               {country && (
                 <div class="py-1" role="none">
-                  {continents.map((item) => (
+                  {continents.map((item, i) => (
                     <button
                       onClick={handleSelect}
                       href="#"
@@ -70,9 +74,12 @@ const SelectCountry = (props) => {
                       role="menuitem"
                       tabindex="-1"
                       id="menu-item-0"
+                      key={i}
                       value={item.continent}
                     >
-                      {item.countries[1]}
+                      {item.countries.map((item) => {
+                        <span>{item[1]}</span>;
+                      })}
                     </button>
                   ))}
                 </div>
@@ -116,7 +123,7 @@ const SelectCountry = (props) => {
           >
             {options && (
               <div class="py-1" role="none">
-                {continents.map((item) => (
+                {continents.map((item, i) => (
                   <button
                     onClick={handleSelect}
                     href="#"
@@ -124,6 +131,7 @@ const SelectCountry = (props) => {
                     role="menuitem"
                     tabindex="-1"
                     id="menu-item-0"
+                    key={i}
                     value={item.continent}
                   >
                     {item.continent}
@@ -135,17 +143,21 @@ const SelectCountry = (props) => {
         </div>
       </div>
       <div className="flex w-full items-center gap-12 pt-8">
-        {countries.slice(0, 1).map((country) => (
-          <>
+        {countries.slice(0, 1).map((country, i) => (
+          <React.Fragment key={i}>
             <div className="w-96">
-              <img src={country.countryInfo.flag} className="w-full " alt="" />
+              <img
+                key={i}
+                src={country.countryInfo.flag}
+                className="w-full "
+                alt=""
+              />
             </div>
             <div className="p-8">
               <h1 className="text-4xl dark:text-white">{country.country}</h1>
               <p>
                 <span className="dark:text-white">Continent: </span>
                 <span className="text-gray-600 dark:text-gray-400">
-                  {" "}
                   {country.continent}
                 </span>
               </p>
@@ -219,7 +231,7 @@ const SelectCountry = (props) => {
                 </div>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

@@ -41,9 +41,10 @@ const Summary = (props) => {
               <option className="dark:bg-gray-800" value="Global">
                 Global
               </option>
-              {continents.map((item) => (
+              {continents.map((item, i) => (
                 <option
                   className="dark:bg-gray-800"
+                  key={i}
                   value={(item.active, item.recovered, item.deaths)}
                 >
                   {item.continent}
