@@ -66,7 +66,7 @@ const SelectCountry = (props) => {
             >
               {country && (
                 <div class="py-1" role="none">
-                  {continents.map((item, i) => (
+                  {/* {countries.map((item, i) => (
                     <button
                       onClick={handleSelect}
                       href="#"
@@ -75,13 +75,30 @@ const SelectCountry = (props) => {
                       tabindex="-1"
                       id="menu-item-0"
                       key={i}
-                      value={item.continent}
+                      // value={item.continent}
                     >
-                      {item.countries.map((item) => {
-                        <span>{item[1]}</span>;
-                      })}
-                    </button>
-                  ))}
+                      {item.country
+                        .filter((region) => region.continent === "Asia")
+                        .map((c) => (
+                          <span>{c.country}</span>
+                        ))}
+                    </button> */}
+                  {countries
+                    .filter((region) => region.continent === "Asia")
+                    .map((item, i) => (
+                      <button
+                        onClick={handleSelect}
+                        href="#"
+                        class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="menu-item-0"
+                        key={i}
+                        // value={item.continent}
+                      >
+                        {item.country}
+                      </button>
+                    ))}
                 </div>
               )}
             </div>
