@@ -7,8 +7,8 @@ const SelectCountry = (props) => {
   const handleClick = () => {
     setOptions(!options);
   };
-  const handleSelect = () => {
-    setSelected("test");
+  const handleSelect = (e) => {
+    setSelected(e.target.value);
   };
   const { countries, continents } = props;
   return (
@@ -62,10 +62,11 @@ const SelectCountry = (props) => {
                   <button
                     onClick={handleSelect}
                     href="#"
-                    class="text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                    class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                     role="menuitem"
                     tabindex="-1"
                     id="menu-item-0"
+                    value={item.continent}
                   >
                     {item.continent}
                   </button>
