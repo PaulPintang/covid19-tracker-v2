@@ -57,7 +57,7 @@ const SelectCountry = (props) => {
                 {continents.map((item) => (
                   <a
                     href="#"
-                    class="text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400"
+                    class="text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all"
                     role="menuitem"
                     tabindex="-1"
                     id="menu-item-0"
