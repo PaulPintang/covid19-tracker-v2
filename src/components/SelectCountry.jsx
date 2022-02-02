@@ -3,12 +3,17 @@ import React, { useState } from "react";
 const SelectCountry = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
+  const [country, setCountry] = useState(false);
   const [selected, setSelected] = useState("Filter by Region");
   const handleClick = () => {
     setOptions(!options);
   };
+  const selectCountry = () => {
+    setCountry(!country);
+  };
   const handleSelect = (e) => {
     setSelected(e.target.value);
+    setOptions(!options);
   };
   const { countries, continents } = props;
   return (
@@ -16,11 +21,64 @@ const SelectCountry = (props) => {
       <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
       <div className="flex justify-between">
         <div>
-          <input
+          {/* <input
             className="px-3 py-3 w-96 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
             type="text"
             placeholder="Search for a Country"
-          />
+          /> */}
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                onClick={selectCountry}
+                type="button"
+                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                id="menu-button"
+                aria-expanded="true"
+                aria-haspopup="true"
+              >
+                {selected}
+                <svg
+                  class="-mr-1 ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              class="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              {country && (
+                <div class="py-1" role="none">
+                  {continents.map((item) => (
+                    <button
+                      onClick={handleSelect}
+                      href="#"
+                      class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="menu-item-0"
+                      value={item.continent}
+                    >
+                      {item.countries[1]}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
         <div class="relative inline-block text-left">
           <div>
