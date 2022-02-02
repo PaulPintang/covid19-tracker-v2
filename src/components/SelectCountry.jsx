@@ -6,7 +6,7 @@ const SelectCountry = (props) => {
   const handleClick = () => {
     setOptions(!options);
   };
-  const { countries } = props;
+  const { countries, continents } = props;
   return (
     <div className="pb-20">
       <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
@@ -54,33 +54,17 @@ const SelectCountry = (props) => {
           >
             {options && (
               <div class="py-1" role="none">
-                <a
-                  href="#"
-                  class="text-gray-700 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                >
-                  Option 1
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-700 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                >
-                  Option 2
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-700 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                >
-                  Option 3
-                </a>
+                {continents.map((item) => (
+                  <a
+                    href="#"
+                    class="text-gray-700 block px-4 py-2 text-sm"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-0"
+                  >
+                    {item.continent}
+                  </a>
+                ))}
               </div>
             )}
           </div>
