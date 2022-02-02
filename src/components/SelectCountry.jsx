@@ -3,8 +3,10 @@ import React, { useState } from "react";
 const SelectCountry = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
+  const [selected, setSelected] = useState("Filter by Region");
   const handleClick = () => {
     setOptions(!options);
+    setSelected("test");
   };
   const { countries, continents } = props;
   return (
@@ -28,7 +30,7 @@ const SelectCountry = (props) => {
               aria-expanded="true"
               aria-haspopup="true"
             >
-              Filter by Region
+              {selected}
               <svg
                 class="-mr-1 ml-2 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
