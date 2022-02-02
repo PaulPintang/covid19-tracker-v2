@@ -6,6 +6,8 @@ const SelectCountry = (props) => {
   const [selected, setSelected] = useState("Filter by Region");
   const handleClick = () => {
     setOptions(!options);
+  };
+  const handleSelect = () => {
     setSelected("test");
   };
   const { countries, continents } = props;
@@ -58,6 +60,7 @@ const SelectCountry = (props) => {
               <div class="py-1" role="none">
                 {continents.map((item) => (
                   <a
+                    onClick={handleSelect}
                     href="#"
                     class="text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                     role="menuitem"
