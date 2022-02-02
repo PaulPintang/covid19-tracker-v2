@@ -59,7 +59,7 @@ const SelectCountry = (props) => {
             {options && (
               <div class="py-1" role="none">
                 {continents.map((item) => (
-                  <a
+                  <button
                     onClick={handleSelect}
                     href="#"
                     class="text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
@@ -68,7 +68,7 @@ const SelectCountry = (props) => {
                     id="menu-item-0"
                   >
                     {item.continent}
-                  </a>
+                  </button>
                 ))}
               </div>
             )}
