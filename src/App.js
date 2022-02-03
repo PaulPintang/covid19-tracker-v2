@@ -7,7 +7,8 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Status from "./components/Status";
 import Footer from "./components/Footer";
-import SelectCountry from "./components/SelectCountry";
+// import SelectCountry from "./components/SelectCountry";
+import Country from "./components/Country";
 
 function App() {
   const [total, setTotal] = useState([]);
@@ -62,7 +63,8 @@ function App() {
       </div>
       <div className="bg-white dark:bg-gray-900 transition-all">
         <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-          <SelectCountry countries={countries} continents={continent} />
+          {/* <SelectCountry countries={countries} continents={continent} /> */}
+          <Country countries={countries} continents={continent} />
         </div>
       </div>
       <Footer />
