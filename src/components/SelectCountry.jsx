@@ -5,12 +5,17 @@ const SelectCountry = (props) => {
   const [options, setOptions] = useState(false);
   const [country, setCountry] = useState(false);
   const [selected, setSelected] = useState("Filter by Region");
+  const [selectedCountry, setSelectedCountry] = useState("USA");
   // for selecting continent
   const handleClick = () => {
     setOptions(!options);
   };
-  // for selecting country
-  const selectCountry = () => {
+  const handleClickCountry = () => {
+    setCountry(!country);
+  };
+  // for selecting country: drowpdown
+  const selectCountry = (e) => {
+    setSelectedCountry(e.target.value);
     setCountry(!country);
   };
   //
@@ -18,6 +23,11 @@ const SelectCountry = (props) => {
     // continent
     setSelected(e.target.value);
     setOptions(!options);
+  };
+  const handleSelectCountry = (e) => {
+    // countries
+    setSelectedCountry(e.target.value);
+    setCountry(!country);
   };
   const { countries, continents } = props;
   return (
@@ -29,14 +39,14 @@ const SelectCountry = (props) => {
             <div class="relative inline-block text-left">
               <div>
                 <button
-                  onClick={selectCountry}
+                  onClick={handleClickCountry}
                   type="button"
                   class="inline-flex justify-between w-52 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
                 >
-                  Philippines
+                  {selectedCountry}
                   <svg
                     class="-mr-1 ml-2 h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +94,7 @@ const SelectCountry = (props) => {
                       .sort()
                       .map((item, i) => (
                         <button
-                          onClick={handleSelect}
+                          onClick={handleSelectCountry}
                           href="#"
                           class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                           role="menuitem"
