@@ -22,7 +22,7 @@ const SelectCountry = (props) => {
   const { countries, continents } = props;
   return (
     <div className="pb-20">
-      <h1 className="text-2xl dark:text-white pb-7">Countries</h1>
+      <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
       <div className="flex justify-between">
         <div className="flex gap-3">
           <div>

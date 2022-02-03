@@ -59,7 +59,11 @@ function App() {
       <Summary continents={continent} total={total} />
       <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
         <Status countries={countries} />
-        <SelectCountry countries={countries} continents={continent} />
+      </div>
+      <div className="bg-white dark:bg-gray-900 transition-all">
+        <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+          <SelectCountry countries={countries} continents={continent} />
+        </div>
       </div>
       <Footer />
     </React.Fragment>

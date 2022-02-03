@@ -3,7 +3,7 @@ import React from "react";
 const Status = (props) => {
   const { countries } = props;
   return (
-    <div className="bg-white shadow-md dark:bg-gray-800 mb-20 rounded-md p-2">
+    <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
       <div class="overflow-y-auto ">
         <table className="min-w-full  border-collapse w-full border-none">
           <thead className="sticky top-0 z-100 ">
