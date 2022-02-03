@@ -13,19 +13,17 @@ const SelectCountry = (props) => {
   const handleClickCountry = () => {
     setCountry(!country);
   };
-  // for selecting country: drowpdown
+  // for selecting country: getting value
   const selectCountry = (e) => {
     setSelectedCountry(e.target.value);
     setCountry(!country);
   };
-  //
   const handleSelect = (e) => {
-    // continent
     setSelected(e.target.value);
     setOptions(!options);
   };
+  // for selecting country: getting value
   const handleSelectCountry = (e) => {
-    // countries
     setSelectedCountry(e.target.value);
     setCountry(!country);
   };
@@ -90,7 +88,7 @@ const SelectCountry = (props) => {
                         ))}
                     </button> */}
                     {countries
-                      .filter((region) => region.continent === "Asia")
+                      .filter((region) => region.continent === selected)
                       .sort()
                       .map((item, i) => (
                         <button
