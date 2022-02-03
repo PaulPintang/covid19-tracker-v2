@@ -35,7 +35,7 @@ const SelectCountry = (props) => {
               <button
                 onClick={selectCountry}
                 type="button"
-                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                class="inline-flex justify-between w-52 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -65,7 +65,7 @@ const SelectCountry = (props) => {
               tabindex="-1"
             >
               {country && (
-                <div class="py-1" role="none">
+                <div class="py-1 h-64 overflow-scroll" role="none">
                   {/* {countries.map((item, i) => (
                     <button
                       onClick={handleSelect}
@@ -85,6 +85,7 @@ const SelectCountry = (props) => {
                     </button> */}
                   {countries
                     .filter((region) => region.continent === "Asia")
+                    .sort()
                     .map((item, i) => (
                       <button
                         onClick={handleSelect}
@@ -94,7 +95,7 @@ const SelectCountry = (props) => {
                         tabindex="-1"
                         id="menu-item-0"
                         key={i}
-                        // value={item.continent}
+                        value={item.country}
                       >
                         {item.country}
                       </button>
