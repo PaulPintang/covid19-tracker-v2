@@ -6,30 +6,27 @@ const Dropdown = (props) => {
   const [country, setCountry] = useState(false);
   const [selected, setSelected] = useState("Filter by Region");
   const [selectedCountry, setSelectedCountry] = useState("USA");
-  // for selecting continent
+  // dropdown show and hide
   const handleClick = () => {
     setOptions(!options);
   };
   const handleClickCountry = () => {
     setCountry(!country);
   };
-  // for selecting country: getting value
-  const selectCountry = (e) => {
-    setSelectedCountry(e.target.value);
-    setCountry(!country);
-  };
+  //end
+  // getting value and close dropdown.
   const handleSelect = (e) => {
     setSelected(e.target.value);
     setOptions(!options);
   };
-  // for selecting country: getting value
   const handleSelectCountry = (e) => {
     setSelectedCountry(e.target.value);
     setCountry(!country);
   };
+  //   end
   const { countries, continents } = props;
   return (
-    <>
+    <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
       <div className="flex justify-between">
         <div className="flex gap-3">
@@ -155,7 +152,7 @@ const Dropdown = (props) => {
           />
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
