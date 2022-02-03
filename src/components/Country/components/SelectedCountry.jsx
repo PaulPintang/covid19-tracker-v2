@@ -1,34 +1,7 @@
 import React, { useState } from "react";
 
 const SelectedCountry = (props) => {
-  // state for dropdown
-  const [options, setOptions] = useState(false);
-  const [country, setCountry] = useState(false);
-  const [selected, setSelected] = useState("Filter by Region");
-  const [selectedCountry, setSelectedCountry] = useState("USA");
-  // for selecting continent
-  const handleClick = () => {
-    setOptions(!options);
-  };
-  const handleClickCountry = () => {
-    setCountry(!country);
-  };
-  // for selecting country: getting value
-  const selectCountry = (e) => {
-    setSelectedCountry(e.target.value);
-    setCountry(!country);
-  };
-  const handleSelect = (e) => {
-    setSelected(e.target.value);
-    setOptions(!options);
-  };
-  // for selecting country: getting value
-  const handleSelectCountry = (e) => {
-    setSelectedCountry(e.target.value);
-    setCountry(!country);
-  };
   const { countries } = props;
-
   return (
     <div className="flex w-full items-center gap-12 pt-8">
       {countries.slice(0, 1).map((country, i) => (
