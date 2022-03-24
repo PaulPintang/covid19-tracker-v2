@@ -5,7 +5,7 @@ const Dropdown = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
-  const [selected, setSelected] = useState("North America");
+  const [selectedContinent, setSelectedContinent] = useState("North America");
   const [selectedCountry, setSelectedCountry] = useState("USA");
   // dropdown show and hide
   const handleClick = () => {
@@ -17,7 +17,7 @@ const Dropdown = (props) => {
   //end
   // getting value and close dropdown.
   const handleSelect = (e) => {
-    setSelected(e.target.value);
+    setSelectedContinent(e.target.value);
     setOptions(!options);
   };
   const handleSelectCountry = (e) => {
@@ -74,7 +74,9 @@ const Dropdown = (props) => {
                   {showCountry && (
                     <div class="py-1" role="none">
                       {countries
-                        .filter((region) => region.continent === selected)
+                        .filter(
+                          (region) => region.continent === selectedContinent
+                        )
                         .sort()
                         .map((item, i) => (
                           <button
@@ -108,7 +110,7 @@ const Dropdown = (props) => {
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-                {selected}
+                {selectedContinent}
                 <svg
                   class="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +163,10 @@ const Dropdown = (props) => {
           />
         </div>
       </div>
-      <SelectedCountry selectedCountry={selectedCountry} countries={countries}/>
+      <SelectedCountry
+        selectedCountry={selectedCountry}
+        countries={countries}
+      />
     </React.Fragment>
   );
 };
