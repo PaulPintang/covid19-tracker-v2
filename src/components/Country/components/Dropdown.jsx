@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import SelectedCountry from "./SelectedCountry";
 
 const Dropdown = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
-  const [country, setCountry] = useState(false);
+  const [showCountry, setShowCountry] = useState(false);
   const [selected, setSelected] = useState("North America");
   const [selectedCountry, setSelectedCountry] = useState("USA");
   // dropdown show and hide
@@ -11,7 +12,7 @@ const Dropdown = (props) => {
     setOptions(!options);
   };
   const handleClickCountry = () => {
-    setCountry(!country);
+    setShowCountry(!showCountry);
   };
   //end
   // getting value and close dropdown.
@@ -21,8 +22,11 @@ const Dropdown = (props) => {
   };
   const handleSelectCountry = (e) => {
     setSelectedCountry(e.target.value);
-    setCountry(!country);
+    // for toggle
+    setShowCountry(!showCountry);
   };
+  // console.log(selectedCountry);
+
   //   end
   const { countries, continents } = props;
   return (
@@ -59,7 +63,7 @@ const Dropdown = (props) => {
                 </button>
               </div>
               {/* Popup selection */}
-              {country ? (
+              {showCountry ? (
                 <div
                   class="transition-all h-56 overflow-auto origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
                   role="menu"
@@ -67,7 +71,7 @@ const Dropdown = (props) => {
                   aria-labelledby="menu-button"
                   tabindex="-1"
                 >
-                  {country && (
+                  {showCountry && (
                     <div class="py-1" role="none">
                       {countries
                         .filter((region) => region.continent === selected)
@@ -157,6 +161,7 @@ const Dropdown = (props) => {
           />
         </div>
       </div>
+      <SelectedCountry selectedCountry={selectedCountry} countries={countries}/>
     </React.Fragment>
   );
 };

@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
-const Summary = (props) => {
-  // destructure array as props
-  const { continents, total } = props;
+const Summary = ({ continents, total }) => {
   // state
   const [select, setSelect] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("Global");
@@ -20,34 +18,12 @@ const Summary = (props) => {
           </div>
           <div>
             <p className="text-gray-500 text-sm">Status</p>
-            {/* <select
-              name=""
-              id=""
-              multiple={false}
-              className="font-semiboldtext-gray-800 dark:text-gray-300 bg-white dark:bg-opacity-0 focus:outline-none cursor-pointer"
-              style={{ paddingBottom: 2 }}
-              value={continentData}
-              onChange={handler}
-            >
-              <option className="dark:bg-gray-800" value="Global">
-                Global
-              </option>
-              {continents.map((item, i) => (
-                <option
-                  className="dark:bg-gray-800"
-                  key={i}
-                  value={(item.active, item.recovered, item.deaths)}
-                >
-                  {item.continent}
-                </option>
-              ))}
-            </select> */}
             <div class="relative inline-block text-left">
               {/* Country */}
               <div>
                 <button
                   type="button"
-                  class="inline-flex justify-between w-44 rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                  class="inline-flex justify-between w-36 rounded-md py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
@@ -118,14 +94,6 @@ const Summary = (props) => {
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
-              {/* {continentData.map((data) => (
-                <div key={data.id}>
-                  <p>{data.active}</p>
-                  <p>{data.recovered}</p>
-                  <p>{data.deaths}</p>
-                </div>
-              ))} */}
-              {/* {continentData} */}
             </p>
             <small className="text-yellow-300 text-sm">
               + {total.todayCases} today

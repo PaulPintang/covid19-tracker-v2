@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const SelectedCountry = (props) => {
-  const { countries } = props;
+const SelectedCountry = ({selectedCountry, countries}) => {
+  console.log(selectedCountry)
   return (
     <div className="flex w-full items-center gap-12 pt-8">
-      {countries.slice(0, 1).map((country, i) => (
+      {countries.filter((country) => country.country === selectedCountry).map((country, i) => (
         <React.Fragment key={i}>
           <div className="w-96">
             <img

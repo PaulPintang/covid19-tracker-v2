@@ -7,7 +7,7 @@ const SelectCountry = (props) => {
   return (
     <div className="pb-20">
       <Dropdown countries={countries} continents={continents} />
-      <SelectedCountry countries={countries} />
+      {/* <SelectedCountry countries={countries} /> */}
     </div>
   );
 };
