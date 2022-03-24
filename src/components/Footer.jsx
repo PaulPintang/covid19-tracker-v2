@@ -8,13 +8,13 @@ const Footer = () => {
           <p className="text-xl dark:text-gray-300 italic shadow-inner">
             THIS COVID-19 TRACKER WEBSITE IS UNDER DEVELOPMENT
           </p>
-          <a
+          {/* <a
             href="https://impaul.netlify.app"
             target="blank"
             className="italic dark:text-gray-200 text-sm dark:hover:text-gray-400 transition-all"
           >
             Developer ?
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
