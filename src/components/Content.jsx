@@ -2,7 +2,7 @@ import React from "react";
 import CountUp from "react-countup";
 import virusLg from "../assets/images/virus-lg.svg";
 
-const Content = (props) => {
+const Content = ({ totalCases }) => {
   return (
     <div
       className="flex items-center justify-between pb-10"
@@ -14,7 +14,7 @@ const Content = (props) => {
             Total Cases:
             <span className="pl-3">
               <CountUp
-                end={props.totalCases}
+                end={totalCases}
                 duration={1.5}
                 formattingFn={(totalCases) => totalCases.toLocaleString()}
               />

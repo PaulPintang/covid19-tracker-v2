@@ -4,7 +4,7 @@ const Dropdown = (props) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
   const [country, setCountry] = useState(false);
-  const [selected, setSelected] = useState("Filter by Region");
+  const [selected, setSelected] = useState("North America");
   const [selectedCountry, setSelectedCountry] = useState("USA");
   // dropdown show and hide
   const handleClick = () => {
@@ -32,6 +32,7 @@ const Dropdown = (props) => {
         <div className="flex gap-3">
           <div>
             <div class="relative inline-block text-left">
+              {/* Country */}
               <div>
                 <button
                   onClick={handleClickCountry}
@@ -57,36 +58,40 @@ const Dropdown = (props) => {
                   </svg>
                 </button>
               </div>
-
-              <div
-                class="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="menu-button"
-                tabindex="-1"
-              >
-                {country && (
-                  <div class="py-1 h-56 overflow-auto" role="none">
-                    {countries
-                      .filter((region) => region.continent === selected)
-                      .sort()
-                      .map((item, i) => (
-                        <button
-                          onClick={handleSelectCountry}
-                          href="#"
-                          class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
-                          role="menuitem"
-                          tabindex="-1"
-                          id="menu-item-0"
-                          key={i}
-                          value={item.country}
-                        >
-                          {item.country}
-                        </button>
-                      ))}
-                  </div>
-                )}
-              </div>
+              {/* Popup selection */}
+              {country ? (
+                <div
+                  class="transition-all h-56 overflow-auto origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="menu-button"
+                  tabindex="-1"
+                >
+                  {country && (
+                    <div class="py-1" role="none">
+                      {countries
+                        .filter((region) => region.continent === selected)
+                        .sort()
+                        .map((item, i) => (
+                          <button
+                            onClick={handleSelectCountry}
+                            href="#"
+                            class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                            role="menuitem"
+                            tabindex="-1"
+                            id="menu-item-0"
+                            key={i}
+                            value={item.country}
+                          >
+                            {item.country}
+                          </button>
+                        ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div class="relative inline-block text-left">
