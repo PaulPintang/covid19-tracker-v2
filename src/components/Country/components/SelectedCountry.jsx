@@ -1,7 +1,6 @@
 import React from "react";
 // import Charts from "./Charts";
-const SelectedCountry = ({ selectedCountry, countries, search }) => {
-  console.log(search);
+const SelectedCountry = ({ selectedCountry, countries }) => {
   return (
     <div>
       <div className="flex w-full items-center gap-12 pt-8">

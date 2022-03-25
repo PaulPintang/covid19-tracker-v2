@@ -12,7 +12,7 @@ const Dropdown = ({
   // state for dropdown
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
-  const [search, setSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const handleClick = () => {
     setOptions(!options);
@@ -31,8 +31,13 @@ const Dropdown = ({
     setShowCountry(!showCountry);
   };
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSearch = () => {
+    setSelectedCountry(searchInput);
+    setSearchInput("");
   };
   return (
     <React.Fragment>
@@ -160,23 +165,26 @@ const Dropdown = ({
             </div>
           </div>
         </div>
-        <div>
+        <div className="relative">
           <input
-            className="px-3 py-2 w-48 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
+            className="px-3 py-2 w-56 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
             type="text"
             placeholder="Quick Search"
-            onChange={handleSearch}
-            value={search}
+            onChange={handleSearchInput}
+            value={searchInput}
           />
-          <div>
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <div
+            className="absolute right-3"
+            style={{ top: 6 }}
+            onClick={handleSearch}
+          >
+            <i class="fa-solid fa-magnifying-glass text-gray-400 cursor-pointer text-sm "></i>
           </div>
         </div>
       </div>
       <SelectedCountry
         selectedCountry={selectedCountry}
         countries={countries}
-        search={search}
       />
     </React.Fragment>
   );
