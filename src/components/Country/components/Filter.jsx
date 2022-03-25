@@ -14,7 +14,6 @@ const Dropdown = ({
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  let filtered = "";
   const handleClick = () => {
     setOptions(!options);
   };
@@ -25,12 +24,8 @@ const Dropdown = ({
   const handleSelect = (e) => {
     setSelectedContinent(e.target.value);
     setOptions(!options);
-    filtered = countries.filter(
-      (region) => region.continent === selectedContinent
-    );
-    setSelectedCountry(filtered[0].country);
-    console.log(filtered[0].country);
   };
+
   // getting value and close dropdown / COUNTRY DROPDOWN.
   const handleSelectCountry = (e) => {
     setSelectedCountry(e.target.value);
@@ -45,6 +40,12 @@ const Dropdown = ({
     setSelectedCountry(searchInput);
     setSearchInput("");
   };
+  // pass the first country of the selected continent
+  let filtered = countries.filter(
+    (region) => region.continent === selectedContinent
+  );
+  setSelectedCountry(filtered[0].country);
+  // setSelectedCountry(filtered[0].country);
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
@@ -98,7 +99,7 @@ const Dropdown = ({
                           <button
                             onClick={handleSelectCountry}
                             href="#"
-                            class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                            class="w-full text-left text-gray-700  px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                             role="menuitem"
                             tabindex="-1"
                             id="menu-item-0"

@@ -3,7 +3,9 @@ import Filter from "./components/Filter.jsx";
 
 const SelectCountry = ({ countries, continents }) => {
   const [selectedContinent, setSelectedContinent] = useState("North America");
+
   const [selectedCountry, setSelectedCountry] = useState("USA");
+
   return (
     <div className="pb-20">
       <Filter
