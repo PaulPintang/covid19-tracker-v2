@@ -14,6 +14,7 @@ const Dropdown = ({
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
+  let filtered = "";
   const handleClick = () => {
     setOptions(!options);
   };
@@ -24,6 +25,11 @@ const Dropdown = ({
   const handleSelect = (e) => {
     setSelectedContinent(e.target.value);
     setOptions(!options);
+    filtered = countries.filter(
+      (region) => region.continent === selectedContinent
+    );
+    setSelectedCountry(filtered[0].country);
+    console.log(filtered[0].country);
   };
   // getting value and close dropdown / COUNTRY DROPDOWN.
   const handleSelectCountry = (e) => {
