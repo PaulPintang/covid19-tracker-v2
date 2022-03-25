@@ -1,34 +1,39 @@
 import React, { useState } from "react";
 import SelectedCountry from "./SelectedCountry";
 
-const Dropdown = (props) => {
+const Dropdown = ({
+  selectedContinent,
+  setSelectedContinent,
+  selectedCountry,
+  setSelectedCountry,
+  countries,
+  continents,
+}) => {
   // state for dropdown
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
-  const [selectedContinent, setSelectedContinent] = useState("North America");
-  const [selectedCountry, setSelectedCountry] = useState("USA");
-  // dropdown show and hide
+  const [search, setSearch] = useState("");
+
   const handleClick = () => {
     setOptions(!options);
   };
   const handleClickCountry = () => {
     setShowCountry(!showCountry);
   };
-  //end
-  // getting value and close dropdown.
+  // getting value and close dropdown / CONTINENT DROPDOWN.
   const handleSelect = (e) => {
     setSelectedContinent(e.target.value);
     setOptions(!options);
   };
+  // getting value and close dropdown / COUNTRY DROPDOWN.
   const handleSelectCountry = (e) => {
     setSelectedCountry(e.target.value);
-    // for toggle
     setShowCountry(!showCountry);
   };
-  // console.log(selectedCountry);
 
-  //   end
-  const { countries, continents } = props;
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
@@ -160,12 +165,18 @@ const Dropdown = (props) => {
             className="px-3 py-2 w-48 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
             type="text"
             placeholder="Quick Search"
+            onChange={handleSearch}
+            value={search}
           />
+          <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
       </div>
       <SelectedCountry
         selectedCountry={selectedCountry}
         countries={countries}
+        search={search}
       />
     </React.Fragment>
   );

@@ -1,11 +1,19 @@
-import React from "react";
-import Dropdown from "./components/Dropdown.jsx";
+import React, { useState } from "react";
+import Filter from "./components/Filter.jsx";
 
-const SelectCountry = (props) => {
-  const { countries, continents } = props;
+const SelectCountry = ({ countries, continents }) => {
+  const [selectedContinent, setSelectedContinent] = useState("North America");
+  const [selectedCountry, setSelectedCountry] = useState("USA");
   return (
     <div className="pb-20">
-      <Dropdown countries={countries} continents={continents} />
+      <Filter
+        countries={countries}
+        continents={continents}
+        selectedContinent={selectedContinent}
+        setSelectedContinent={setSelectedContinent}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
+      />
     </div>
   );
 };
