@@ -51,7 +51,7 @@ const Summary = ({ continents, total }) => {
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
-                  tabindex="-1"
+                  tabIndex="-1"
                 >
                   {select && (
                     <div className="py-1" role="none">
@@ -60,7 +60,7 @@ const Summary = ({ continents, total }) => {
                           href="#"
                           className="w-full text-left text-gray-700 block px-4 py-1 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                           role="menuitem"
-                          tabindex="-1"
+                          tabIndex="-1"
                           id="menu-item-0"
                           key={i}
                           value={item.continent}

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SelectedCountry from "./SelectedCountry";
 
-const Dropdown = ({
+const Filter = ({
   selectedContinent,
   setSelectedContinent,
   selectedCountry,
@@ -13,6 +13,13 @@ const Dropdown = ({
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    const filtered = countries.filter(
+      (region) => region.continent === selectedContinent
+    );
+    filtered.slice(0, 1).map((country) => setSelectedCountry(country.country));
+  }, [selectedContinent, countries, setSelectedCountry]);
 
   const handleClick = () => {
     setOptions(!options);
@@ -193,4 +200,4 @@ const Dropdown = ({
   );
 };
 
-export default Dropdown;
+export default Filter;
