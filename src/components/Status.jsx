@@ -4,7 +4,7 @@ const Status = (props) => {
   const { countries } = props;
   return (
     <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
-      <div class="overflow-y-auto ">
+      <div className="overflow-y-auto ">
         <table className="min-w-full  border-collapse w-full border-none">
           <thead className="sticky top-0 z-100 ">
             <tr>
@@ -66,7 +66,7 @@ const Status = (props) => {
                 <tr key={i} className="border-none">
                   <td className="py-2 pl-3  border-none">
                     <div className="flex items-center gap-3">
-                      <div class="w-7">
+                      <div className="w-7">
                         <img
                           src={country.countryInfo.flag}
                           alt=""

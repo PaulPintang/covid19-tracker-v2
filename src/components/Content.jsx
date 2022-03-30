@@ -11,7 +11,7 @@ const Content = ({ totalCases }) => {
       <div className="space-y-3">
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-5xl">
-            Total Cases:
+            Total Casedsadsads:
             <span className="pl-3">
               <CountUp
                 end={totalCases}

@@ -10,7 +10,10 @@ const SelectCountry = ({ countries, continents }) => {
       (region) => region.continent === selectedContinent
     );
     console.log("continent change");
-    setSelectedCountry(filtered[0].country);
+    // setSelectedCountry(filtered[0].country);
+    return () => {
+      // setSelectedCountry(filtered[0].country);
+    };
   }, [selectedContinent]);
 
   return (

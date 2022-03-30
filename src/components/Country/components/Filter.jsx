@@ -48,29 +48,29 @@ const Dropdown = ({
       <div className="flex justify-between">
         <div className="flex gap-3">
           <div>
-            <div class="relative inline-block text-left">
+            <div className="relative inline-block text-left">
               {/* Country */}
               <div>
                 <button
                   onClick={handleClickCountry}
                   type="button"
-                  class="inline-flex justify-between w-52 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                  className="inline-flex justify-between w-52 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
                 >
                   {selectedCountry}
                   <svg
-                    class="-mr-1 ml-2 h-5 w-5"
+                    className="-mr-1 ml-2 h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </button>
@@ -78,14 +78,14 @@ const Dropdown = ({
               {/* Popup selection */}
               {showCountry ? (
                 <div
-                  class="transition-all h-56 overflow-auto origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                  className="transition-all h-56 overflow-auto origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
-                  tabindex="-1"
+                  tabIndex="-1"
                 >
                   {showCountry && (
-                    <div class="py-1" role="none">
+                    <div className="py-1" role="none">
                       {countries
                         .filter(
                           (region) => region.continent === selectedContinent
@@ -95,9 +95,9 @@ const Dropdown = ({
                           <button
                             onClick={handleSelectCountry}
                             href="#"
-                            class="w-full text-left text-gray-700  px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                            className="w-full text-left text-gray-700  px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                             role="menuitem"
-                            tabindex="-1"
+                            tabIndex="-1"
                             id="menu-item-0"
                             key={i}
                             value={item.country}
@@ -113,49 +113,49 @@ const Dropdown = ({
               )}
             </div>
           </div>
-          <div class="relative inline-block text-left">
+          <div className="relative inline-block text-left">
             <div>
               <button
                 onClick={handleClick}
                 type="button"
-                class="flex justify-between w-44 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                className="flex justify-between w-44 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
               >
                 {selectedContinent}
                 <svg
-                  class="-mr-1 ml-2 h-5 w-5"
+                  className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               </button>
             </div>
 
             <div
-              class="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+              className="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
-              tabindex="-1"
+              tabIndex="-1"
             >
               {options && (
-                <div class="py-1" role="none">
+                <div className="py-1" role="none">
                   {continents.map((item, i) => (
                     <button
                       onClick={handleSelect}
                       href="#"
-                      class="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      className="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                       role="menuitem"
-                      tabindex="-1"
+                      tabIndex="-1"
                       id="menu-item-0"
                       key={i}
                       value={item.continent}
@@ -181,7 +181,7 @@ const Dropdown = ({
             style={{ top: 6 }}
             onClick={handleSearch}
           >
-            <i class="fa-solid fa-magnifying-glass text-gray-400 cursor-pointer text-sm "></i>
+            <i className="fa-solid fa-magnifying-glass text-gray-400 cursor-pointer text-sm "></i>
           </div>
         </div>
       </div>
