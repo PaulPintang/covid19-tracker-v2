@@ -20,12 +20,13 @@ const Dropdown = ({
   const handleClickCountry = () => {
     setShowCountry(!showCountry);
   };
+
   // getting value and close dropdown / CONTINENT DROPDOWN.
   const handleSelect = (e) => {
     setSelectedContinent(e.target.value);
+    // console.log(filtered[0].country);
     setOptions(!options);
   };
-
   // getting value and close dropdown / COUNTRY DROPDOWN.
   const handleSelectCountry = (e) => {
     setSelectedCountry(e.target.value);
@@ -40,12 +41,7 @@ const Dropdown = ({
     setSelectedCountry(searchInput);
     setSearchInput("");
   };
-  // pass the first country of the selected continent
-  let filtered = countries.filter(
-    (region) => region.continent === selectedContinent
-  );
-  setSelectedCountry(filtered[0].country);
-  // setSelectedCountry(filtered[0].country);
+
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>

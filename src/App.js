@@ -13,6 +13,7 @@ function App() {
   const [total, setTotal] = useState([]);
   const [continent, setContinent] = useState([]);
   const [countries, setCountries] = useState([]);
+
   useEffect(() => {
     // all total
     axios
@@ -45,7 +46,6 @@ function App() {
 
   // initialize props for Content COmponent
   const totalCases = total.cases;
-
   return (
     <React.Fragment>
       <div className="bg-white dark:bg-gray-900 transition-all">
