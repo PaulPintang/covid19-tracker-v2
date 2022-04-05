@@ -10,12 +10,11 @@ const Content = ({ totalCases }) => {
           <h1 className="text-3xl md:text-5xl lg:text-5xl">
             <span className="hidden md:inline lg:inline">Total Cases:</span>
             <span className="md:pl-3 lg:pl-3 md:inline lg:inline block text-5xl">
-              {/* <CountUp
+              <CountUp
                 end={totalCases}
                 duration={1.5}
                 formattingFn={(totalCases) => totalCases.toLocaleString()}
-              /> */}
-              492,859,601
+              />
             </span>
           </h1>
           <div className="flex gap-3 items-center md:hidden lg:hidden">

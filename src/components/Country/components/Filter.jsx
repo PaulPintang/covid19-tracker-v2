@@ -52,16 +52,15 @@ const Filter = ({
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
-      <div className="flex justify-between">
-        <div className="flex gap-3">
+      <div className="flex justify-between flex-wrap-reverse gap-4">
+        <div className="flex gap-3 w-full justify-between">
           <div>
-            <div className="relative inline-block text-left">
-              {/* Country */}
+            <div className="relative inline-block text-left w-full">
               <div>
                 <button
                   onClick={handleClickCountry}
                   type="button"
-                  className="inline-flex justify-between w-52 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                  className="flex justify-between md:w-52 lg:w-52 w-full  rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
@@ -120,12 +119,12 @@ const Filter = ({
               )}
             </div>
           </div>
-          <div className="relative inline-block text-left">
+          <div className="relative inline-block text-left w-full">
             <div>
               <button
                 onClick={handleClick}
                 type="button"
-                className="flex justify-between w-44 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                className="flex justify-between md:w-44 lg:w-44 w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -175,9 +174,9 @@ const Filter = ({
             </div>
           </div>
         </div>
-        <div className="relative">
+        <div className="relative w-full md:w-auto lg:w-auto">
           <input
-            className="px-3 py-2 w-56 rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
+            className="px-3 py-2 md:w-56 lg:w-56 w-full rounded-md text-sm transition focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:focus:border-gray-800 dark:border-opacity-20 focus:border-opacity-60 border border-gray-200 border-opacity-40 shadow-sm"
             type="text"
             placeholder="Quick Search"
             onChange={handleSearchInput}
