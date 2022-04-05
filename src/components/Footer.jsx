@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="flex justify-center h-48 bg-white dark:bg-gray-800">
       <div className="flex items-center h-full">
         <div className="flex flex-col items-center">
-          <p className="text-xl dark:text-gray-300 italic shadow-inner">
+          <p className="md:text-xl lg:text-xl text-base px-3 dark:text-gray-300 italic shadow-inner text-center">
             THIS COVID-19 TRACKER WEBSITE IS UNDER DEVELOPMENT
           </p>
           {/* <a
