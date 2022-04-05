@@ -5,7 +5,7 @@ import virusLg from "../assets/images/virus-lg.svg";
 const Content = ({ totalCases }) => {
   return (
     <div className="flex items-center lg:items-center justify-between pb-10 h-[calc(100vh-7rem)] md::h-[calc(85vh-7rem)] lg:h-[calc(85vh-7rem)]">
-      <div className="space-y-7 md:space-y-3 lg:space-y-3 relative z-50">
+      <div className="space-y-7 md:space-y-3 lg:space-y-3 relative z-50 ">
         <div className="dark:text-gray-300 space-y-3">
           <h1 className="text-3xl md:text-5xl lg:text-5xl">
             <span className="hidden md:inline lg:inline">Total Cases:</span>
