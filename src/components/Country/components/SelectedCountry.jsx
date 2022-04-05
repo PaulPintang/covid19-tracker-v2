@@ -3,12 +3,12 @@ import React from "react";
 const SelectedCountry = ({ selectedCountry, countries }) => {
   return (
     <div>
-      <div className="flex w-full items-center gap-12 pt-8">
+      <div className="md:flex lg:flex w-full items-center gap-12 pt-8">
         {countries
           .filter((country) => country.country === selectedCountry)
           .map((country, i) => (
             <React.Fragment key={i}>
-              <div className="w-96">
+              <div className="md:w-96 lg:w-96 w-full">
                 <img
                   key={i}
                   src={country.countryInfo.flag}
@@ -16,13 +16,13 @@ const SelectedCountry = ({ selectedCountry, countries }) => {
                   alt=""
                 />
               </div>
-              <div className="p-8">
+              <div className="md:p-8 lg:p-8 py-8">
                 <h1 className="text-4xl dark:text-white">{country.country}</h1>
                 <span className="dark:text-white">Continent: </span>
                 <span className="text-gray-600 dark:text-gray-400">
                   {country.continent}
                 </span>
-                <div className="flex gap-28">
+                <div className="md:flex lg:flex gap-28">
                   <div>
                     <h1 className="pt-4 font-bold dark:text-gray-100">
                       Covid-19 Cases
