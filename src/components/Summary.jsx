@@ -8,7 +8,7 @@ const Summary = ({ continents, total }) => {
   const [selectedContinent, setSelectedContinent] = useState("Global");
   return (
     <div
-      className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14"
+      className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14 hidden"
       style={{ maxWidth: 830 }}
     >
       <div className="flex items-center justify-between mx-auto ">

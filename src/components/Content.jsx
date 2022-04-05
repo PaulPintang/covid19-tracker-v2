@@ -4,14 +4,11 @@ import virusLg from "../assets/images/virus-lg.svg";
 
 const Content = ({ totalCases }) => {
   return (
-    <div
-      className="flex items-center justify-between pb-10"
-      style={{ height: "calc(85vh - 7rem)" }}
-    >
-      <div className="space-y-3">
+    <div className="flex items-center justify-between pb-10 h-[calc(100vh-7rem)] md::h-[calc(85vh-7rem)] lg:h-[calc(85vh-7rem)]">
+      <div className="space-y-3 relative z-50">
         <div className="dark:text-gray-300 space-y-3">
-          <h1 className="text-5xl">
-            Total Casedsadsads:
+          <h1 className="text-5xl md:text-5xl lg:text-5xl">
+            Total Cases:
             <span className="pl-3">
               <CountUp
                 end={totalCases}
@@ -22,7 +19,10 @@ const Content = ({ totalCases }) => {
           </h1>
 
           <div>
-            <p className="text-3xl font-light">Covid-19 Worldwide Status</p>
+            <p className="text-2xl md:text-3xl lg:text-3xlfont-light">
+              <span className="hidden md:inline lg:inline">Covid-19 </span>
+              Worldwide Status
+            </p>
             <p className="font-medium italic text-gray-500">
               As of December 17, 2021
             </p>
@@ -32,7 +32,7 @@ const Content = ({ totalCases }) => {
           <p className="text-3xl font-light dark:text-gray-300">
             What is Covid-19 ?
           </p>
-          <p className="max-w-md text-gray-600">
+          <p className="max-w-md text-gray-600 text-sm md:text-base lg:text-base">
             Coronavirus disease (Covid-19) is an infectious disease caused by a
             newly discovered coronavirus. Most people who fall sick with
             COVID-19 will experience mild to moderate symptoms and recover
@@ -55,7 +55,7 @@ const Content = ({ totalCases }) => {
         </div>
       </div>
 
-      <div style={{ width: 360 }}>
+      <div class="w-[370px] md:w-[360px] lg:w-[360px] md:relative lg:relative md:right-0 lg:right-0 absolute right-[-190px] z-0 opacity-30 md:opacity-100 lg:opacity-100">
         <img src={virusLg} alt="" className="w-full rotate" />
       </div>
     </div>
