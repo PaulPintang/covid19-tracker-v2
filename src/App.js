@@ -55,7 +55,7 @@ function App() {
         </div>
       </div>
       <Summary continents={continent} total={total} />
-      <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+      <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
         <Status countries={countries} />
       </div>
       <div className="bg-white dark:bg-gray-900 transition-all">

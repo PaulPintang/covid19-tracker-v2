@@ -7,23 +7,20 @@ const Summary = ({ continents, total }) => {
   const [select, setSelect] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("Global");
   return (
-    <div
-      className="shadow-md rounded-md px-7 py-5 mx-auto mt-3 dark:bg-gray-800 bg-white relative bottom-14 hidden"
-      style={{ maxWidth: 830 }}
-    >
-      <div className="flex items-center justify-between mx-auto ">
+    <div className="shadow-md rounded-md px-7 py-5  md:mx-auto lg:mx-auto mt-3 dark:bg-gray-800 bg-white relative  bottom-14 h-full w-[87%] mx-auto md:w-[830px] lg:w-[830px]">
+      <div className="md:flex lg:flex items-center justify-between mx- ">
         <div className="flex items-center gap-3 ">
           <div className="w-12">
             <img src={virus} alt="" />
           </div>
           <div>
             <p className="text-gray-500 text-sm">Status</p>
-            <div className="relative inline-block text-left">
+            <div className="relative inline-block text-left w-full">
               {/* Country */}
               <div>
                 <button
                   type="button"
-                  className="inline-flex justify-between w-36 rounded-md py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                  className="flex justify-between w-44 md:w-36 lg:w-36 rounded-md py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
