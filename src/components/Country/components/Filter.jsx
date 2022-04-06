@@ -53,7 +53,7 @@ const Filter = ({
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
       <div className="flex justify-between flex-wrap-reverse md:flex-no-wrap lg:flex-nowrap gap-4">
-        <div className="flex gap-3 w-full justify-between">
+        <div className="flex gap-3 w-full md:w-auto lg:w-auto justify-between">
           <div>
             <div className="relative inline-block text-left w-full">
               <div>
