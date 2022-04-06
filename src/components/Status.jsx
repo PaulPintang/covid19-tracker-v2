@@ -16,7 +16,7 @@ const Status = (props) => {
               </th>
               <th
                 scope="col"
-                className="rounded-tr-md md:rounded-none lg:rounded-none py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                className="rounded-tr-md md:rounded-none lg:rounded-none py-3 md:pr-3 lg:pr-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
                 Total Cases
               </th>
@@ -48,20 +48,20 @@ const Status = (props) => {
                 scope="col"
                 className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
               >
-                Today Deaths
+                Deaths
               </th>
               <th
                 scope="col"
                 className=" hidden md:table-cell lg:table-cell py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tr-md"
               >
-                Deaths
+                Today Deaths
               </th>
             </tr>
           </thead>
           <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
             {countries
               .sort((a, b) => b.cases - a.cases)
-              .slice(0, 5)
+              .slice(0, 1)
               .map((country, i) => (
                 <tr key={i} className="border-none">
                   <td className="py-2 pl-3  border-none">
@@ -79,7 +79,46 @@ const Status = (props) => {
                     </div>
                   </td>
                   <td className="dark:text-gray-400 py-2">
-                    {country.cases.toLocaleString()}
+                    <div className="flex items-center justify-between">
+                      <span>{country.cases.toLocaleString()}</span>
+                      <i className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"></i>
+                    </div>
+                    <div
+                      className="transition-all p-2 absolute right-[60px] mt-[-2px] w-24 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="menu-button"
+                      tabIndex="-1"
+                    >
+                      <div className="w-">
+                        <img
+                          src={country.countryInfo.flag}
+                          alt=""
+                          className="w-full rounded-md"
+                        />
+                      </div>
+                      {/* <p className="text-[12px]">{country.country}</p> */}
+                      <div className="pt-1">
+                        <div className="flex items-center gap-1">
+                          <div className="bg-yellow-300 w-5 h-[6px]"></div>
+                          <p className="text-[12px]">
+                            {country.active.toLocaleString()}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <div className="bg-green-300 w-5 h-[6px]"></div>
+                          <p className="text-[12px]">
+                            {country.recovered.toLocaleString()}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <div className="bg-red-300 w-5 h-[6px]"></div>
+                          <p className="text-[12px]">
+                            {country.deaths.toLocaleString()}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                   <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
                     {country.active.toLocaleString()}
