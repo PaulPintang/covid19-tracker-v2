@@ -192,7 +192,14 @@ const Filter = ({
             value={searchInput}
           />
           <div className="absolute right-3" style={{ top: 6 }}>
-            <i className="fa-solid fa-magnifying-glass text-gray-400  text-sm "></i>
+            {searchInput ? (
+              <i
+                className="fa-solid fa-close text-gray-600  text-sm cursor-pointer"
+                onClick={() => setSearchInput("")}
+              ></i>
+            ) : (
+              <i className="fa-solid fa-magnifying-glass text-gray-400  text-sm "></i>
+            )}
           </div>
 
           {searchInput.length >= 2 ? (
