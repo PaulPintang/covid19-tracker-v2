@@ -13,6 +13,7 @@ const Filter = ({
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [suggestion, setSuggestion] = useState(false);
 
   useEffect(() => {
     const filtered = countries.filter(
@@ -47,6 +48,7 @@ const Filter = ({
   const handleSearch = () => {
     setSelectedCountry(searchInput);
     setSearchInput("");
+    setSuggestion(!suggestion);
   };
 
   return (
@@ -178,6 +180,7 @@ const Filter = ({
             type="text"
             placeholder="Quick Search"
             onChange={handleSearchInput}
+            onClick={() => setSuggestion(!suggestion)}
             value={searchInput}
           />
           <div
@@ -186,6 +189,34 @@ const Filter = ({
             onClick={handleSearch}
           >
             <i className="fa-solid fa-magnifying-glass text-gray-400 cursor-pointer text-sm "></i>
+          </div>
+          <div
+            className="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="menu-button"
+            tabIndex="-1"
+          >
+            {suggestion && (
+              <div className="py-1" role="none">
+                {continents
+                  .filter((country) => country.continent === searchInput)
+                  .map((item, i) => (
+                    <button
+                      onClick={handleSelect}
+                      href="#"
+                      className="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                      key={i}
+                      value={item.continent}
+                    >
+                      {item.continent}
+                    </button>
+                  ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
