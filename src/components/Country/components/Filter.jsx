@@ -12,7 +12,7 @@ const Filter = ({
   const [options, setOptions] = useState(false);
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [suggestion, setSuggestion] = useState(false);
+  const [suggestion, setSuggestion] = useState([]);
 
   useEffect(() => {
     const filtered = countries.filter(
@@ -42,12 +42,21 @@ const Filter = ({
 
   const handleSearchInput = (e) => {
     setSearchInput(e.target.value);
+    // search suggestion
+    let matches = [];
+    if (searchInput.length > 0) {
+      matches = countries.filter((country) => {
+        const regex = new RegExp(`${searchInput}`, "gi");
+        return country.country.match(regex);
+      });
+    }
+    console.log("countries:", matches);
+    setSuggestion(matches);
   };
 
   const handleSearch = () => {
     setSelectedCountry(searchInput);
     setSearchInput("");
-    setSuggestion(!suggestion);
   };
 
   return (
@@ -198,8 +207,8 @@ const Filter = ({
           >
             {suggestion && (
               <div className="py-1" role="none">
-                {continents
-                  .filter((country) => country.continent === searchInput)
+                {suggestion
+                  .filter((country) => country.country === searchInput)
                   .map((item, i) => (
                     <button
                       onClick={handleSelect}
