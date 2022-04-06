@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import CountUp from "react-countup";
 import virusLg from "../assets/images/virus-lg.svg";
 
 const Content = ({ totalCases }) => {
+  const [now] = useState(Date().toLocaleString());
   return (
     <div className="flex items-center lg:items-center justify-between pb-10 h-[calc(100vh-7rem)] md::h-[calc(85vh-7rem)] lg:h-[calc(85vh-7rem)]">
       <div className="space-y-7 md:space-y-3 lg:space-y-3 relative z-50 ">
@@ -26,8 +27,8 @@ const Content = ({ totalCases }) => {
               <span className="hidden md:inline lg:inline">Covid-19 </span>
               Worldwide Status
             </p>
-            <p className="font-medium italic text-gray-500">
-              As of December 17, 2021
+            <p className="font-medium text-[13px] italic text-gray-500">
+              As of {now}
             </p>
           </div>
         </div>
