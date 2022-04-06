@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SelectedCountry from "./SelectedCountry";
-
 const Filter = ({
   selectedContinent,
   setSelectedContinent,
