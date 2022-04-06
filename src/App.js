@@ -48,7 +48,7 @@ function App() {
   const totalCases = total.cases;
   return (
     <React.Fragment>
-      <div className="bg-white dark:bg-gray-900 transition-all">
+      <div className="bg-white dark:bg-gray-900 transition-all w-full relative overflow-hidden">
         <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
           <Header />
           <Content totalCases={totalCases} />
