@@ -54,9 +54,10 @@ const Filter = ({
     setsuggestions(matches);
   };
 
-  const handleSearch = () => {
-    setSelectedCountry(searchInput);
-    setSearchInput("");
+  const handleSearch = (e) => {
+    setSelectedCountry(e.target.value);
+    setSearchInput(e.target.value);
+    setsuggestions([]);
   };
 
   return (
@@ -190,12 +191,8 @@ const Filter = ({
             onChange={handleSearchInput}
             value={searchInput}
           />
-          <div
-            className="absolute right-3"
-            style={{ top: 6 }}
-            onClick={handleSearch}
-          >
-            <i className="fa-solid fa-magnifying-glass text-gray-400 cursor-pointer text-sm "></i>
+          <div className="absolute right-3" style={{ top: 6 }}>
+            <i className="fa-solid fa-magnifying-glass text-gray-400  text-sm "></i>
           </div>
 
           {searchInput.length >= 2 ? (
@@ -216,7 +213,7 @@ const Filter = ({
                     tabIndex="-1"
                     id="menu-item-0"
                     key={i}
-                    value={searchInput}
+                    value={item.country}
                   >
                     {item.country}
                   </button>
