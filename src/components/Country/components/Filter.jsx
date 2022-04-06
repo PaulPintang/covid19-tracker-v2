@@ -122,7 +122,7 @@ const Filter = ({
               <button
                 onClick={handleClick}
                 type="button"
-                className="flex justify-between md:w-44 lg:w-44 w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                className="flex justify-between md:w-[180px] lg:w-[180px] w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
