@@ -67,8 +67,9 @@ const Status = (props) => {
               .slice(0, 5)
               .map((country, i) => (
                 <tr key={i} className="border-none">
-                  <td className="py-2 pl-3  border-none">
+                  <td className="py-2 pl-2  border-none">
                     <div className="flex items-center gap-3">
+                      <p>#{i + 1}</p>
                       <div className="w-7">
                         <img
                           src={country.countryInfo.flag}
