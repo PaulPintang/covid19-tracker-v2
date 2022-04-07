@@ -5,7 +5,7 @@ const SelectCountry = ({ countries, continents }) => {
   const [selectedContinent, setSelectedContinent] = useState("North America");
   const [selectedCountry, setSelectedCountry] = useState("USA");
   return (
-    <div className="">
+    <div className="lg:pb-16">
       <Filter
         countries={countries}
         continents={continents}
