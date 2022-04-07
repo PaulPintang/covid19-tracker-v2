@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Status = (props) => {
   const { countries } = props;
   const [showInfos, setShowInfos] = useState(false);
+
+  countries.push();
   return (
     <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
       <div className="overflow-y-auto ">
@@ -83,14 +85,17 @@ const Status = (props) => {
                     <div className="flex items-center justify-between">
                       <span>{country.cases.toLocaleString()}</span>
                       <i
-                        onClick={() => setShowInfos(!showInfos)}
+                        onClick={() => {
+                          console.log(i);
+                          setShowInfos(!showInfos);
+                        }}
                         className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
                       ></i>
                     </div>
                     {/* other info's */}
                     {showInfos && (
                       <div
-                        className="transition-all p-2 absolute right-[60px] mt-[-2px] w-24 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                        className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="menu-button"
