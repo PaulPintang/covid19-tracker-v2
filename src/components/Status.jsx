@@ -4,7 +4,7 @@ const Status = (props) => {
   const { countries, continents } = props;
   const [showInfos, setShowInfos] = useState(false);
   const [showContinent, setShowContinent] = useState(false);
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(true);
   const [filterBy, setFilterBy] = useState(5);
   const [filterByContinent, setFilterByContinent] = useState("Global");
   countries.push();
@@ -41,7 +41,7 @@ const Status = (props) => {
             {/* Popup selection */}
             {showFilter && (
               <div
-                className="transition-all w-full overflow-auto origin-top-right absolute right-0 mt-2 z-0 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none py-1"
+                className="transition-all w-full overflow-auto origin-top-right absolute right-0 mt-2 z-50 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none py-1"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
@@ -130,9 +130,12 @@ const Status = (props) => {
         </div>
       </div>
       <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2 ">
-        <div className="overflow-y-auto ">
-          <table className="min-w-full  border-collapse w-full border-none">
-            <thead className="stic ky top-0 z-100 ">
+        <div className="overflow-y-scroll max-h-[440px] scrollbar-hidden">
+          <table className="min-w-full  border-collapse w-full border-none ">
+            <thead
+              className="sticky top-0 z-0"
+              style={{ background: "#2D3746" }}
+            >
               <tr>
                 <th
                   scope="col"
@@ -189,7 +192,7 @@ const Status = (props) => {
                 .sort((a, b) => b.cases - a.cases)
                 .slice(0, filterBy)
                 .map((country, i) => (
-                  <tr key={i} className="border-none">
+                  <tr key={i} className="border-none ">
                     <td className="py-2 pl-2  border-none">
                       <div className="flex items-center gap-3">
                         <p>#{i + 1}</p>
