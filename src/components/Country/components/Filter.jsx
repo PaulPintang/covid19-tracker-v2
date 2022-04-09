@@ -99,6 +99,7 @@ const Filter = ({
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
                 tabIndex="-1"
+                id="scrollbar"
               >
                 {showCountry && (
                   <div className="py-1" role="none">

@@ -12,7 +12,7 @@ const Status = (props) => {
   );
   return (
     <div>
-      <div className="flex items-center justify-between pb-4">
+      <div className="flex items-center justify-between pb-3">
         <div className="flex gap-3 w-full md:w-auto lg:w-auto justify-between">
           <div className="relative inline-block text-left w-full">
             <div>
@@ -135,11 +135,8 @@ const Status = (props) => {
             className=" text-gray-300 text-sm"
             style={{ textOverflow: "hidden" }}
           >
-            {/* Data as of {now} */}
-            <span className="font-semibold uppercase">
-              {filterByContinent} :
-            </span>{" "}
-            Total of {getTotal.length} Countries
+            <span className="uppercase">{filterByContinent} </span> : Total of
+            <span className="font-semibold"> {getTotal.length} Countries</span>
           </p>
         </div>
       </div>
