@@ -12,19 +12,19 @@ const Status = (props) => {
   );
   return (
     <div>
-      <div className="flex items-center justify-between pb-3">
+      <div className="flex items-center justify-between pb-2">
         <div className="flex gap-3 w-full md:w-auto lg:w-auto justify-between">
           <div className="relative inline-block text-left w-full">
             <div>
               <button
                 onClick={() => setShowFilter(!showFilter)}
                 type="button"
-                className="flex justify-between  w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
+                className="flex justify-between md:w-44  w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-                Top {filterBy} Countries
+                Top {filterBy}
                 <svg
                   className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -130,9 +130,9 @@ const Status = (props) => {
             )}
           </div>
         </div>
-        <div>
+        <div className="hidden md:flex dark:bg-gray-800 bg-gray-300 px-4 rounded-full">
           <p
-            className=" text-gray-300 text-sm"
+            className=" dark:text-gray-300 text-gray-800 text-sm"
             style={{ textOverflow: "hidden" }}
           >
             <span className="uppercase">{filterByContinent} </span> : Total of
@@ -140,8 +140,11 @@ const Status = (props) => {
           </p>
         </div>
       </div>
-      <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2 ">
-        <div className="overflow-y-scroll max-h-[440px] scrollbar-hidden">
+      <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
+        <div
+          className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
+          id="scroll bar-table"
+        >
           <table className="min-w-full  border-collapse w-full border-none ">
             <thead
               className="sticky top-0 z-0"

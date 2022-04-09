@@ -27,11 +27,13 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
-
-#scrollbar::-webkit-scrollbar {
+#scrollbar-table::-webkit-scrollbar-track {
+  margin-top: 40px;
+}
+#scrollbar::-webkit-scrollbar,#scrollbar-table::-webkit-scrollbar  {
   width: 3px;
 }
 
-#scrollbar::-webkit-scrollbar-thumb {
+#scrollbar::-webkit-scrollbar-thumb,#scrollbar-table::-webkit-scrollbar-thumb {
   background-color: #565b63;
 }
