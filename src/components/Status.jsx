@@ -187,7 +187,7 @@ const Status = (props) => {
             <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
               {countries
                 .sort((a, b) => b.cases - a.cases)
-                .slice(0, 5)
+                .slice(0, filterBy)
                 .map((country, i) => (
                   <tr key={i} className="border-none">
                     <td className="py-2 pl-2  border-none">
