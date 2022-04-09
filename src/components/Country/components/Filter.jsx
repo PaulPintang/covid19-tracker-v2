@@ -13,6 +13,7 @@ const Filter = ({
   const [showCountry, setShowCountry] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [suggestions, setsuggestions] = useState([]);
+  const [showMatch, setShowMatch] = useState(true);
 
   useEffect(() => {
     const filtered = countries.filter(
@@ -41,6 +42,7 @@ const Filter = ({
   };
 
   const handleSearchInput = (e) => {
+    setShowMatch(true);
     setSearchInput(e.target.value);
     // search suggestions
     let matches = [];
@@ -57,8 +59,8 @@ const Filter = ({
     setSelectedCountry(e.target.value);
     setSearchInput(e.target.value);
     setsuggestions([]);
+    setShowMatch(false);
   };
-
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
@@ -203,9 +205,11 @@ const Filter = ({
             )}
           </div>
 
-          {searchInput.length >= 2 ? (
+          {showMatch ? (
             <div
-              className="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+              className={`transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none ${
+                searchInput === "" ? "hidden" : ""
+              }`}
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"

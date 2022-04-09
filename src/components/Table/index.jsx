@@ -154,10 +154,11 @@ const Table = (props) => {
           >
             <span className="uppercase">{filterByContinent} </span> : Total of
             <span className="font-semibold">
-              {" "}
-              {filterByContinent === "Global"
-                ? countries.length
-                : getTotal.length}
+              <span className="px-1">
+                {filterByContinent === "Global"
+                  ? countries.length
+                  : getTotal.length}
+              </span>
               Countries
             </span>
           </p>
