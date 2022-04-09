@@ -153,7 +153,13 @@ const Table = (props) => {
             style={{ textOverflow: "hidden" }}
           >
             <span className="uppercase">{filterByContinent} </span> : Total of
-            <span className="font-semibold"> {getTotal.length} Countries</span>
+            <span className="font-semibold">
+              {" "}
+              {filterByContinent === "Global"
+                ? countries.length
+                : getTotal.length}
+              Countries
+            </span>
           </p>
         </div>
       </div>
