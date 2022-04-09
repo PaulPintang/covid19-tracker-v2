@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 const Status = (props) => {
-  const { countries } = props;
+  const { countries, continents } = props;
   const [showInfos, setShowInfos] = useState(false);
   const [showContinent, setShowContinent] = useState(false);
-  const [showFilter, setShowFilter] = useState(true);
-  const [filter, setFilter] = useState(5);
+  const [showFilter, setShowFilter] = useState(false);
+  const [filterBy, setFilterBy] = useState(5);
+  const [filterByContinent, setFilterByContinent] = useState("Global");
   countries.push();
   return (
     <div>
@@ -21,7 +22,7 @@ const Status = (props) => {
                 aria-expanded="true"
                 aria-haspopup="true"
               >
-                Top {filter} Countries
+                Top {filterBy} Countries
                 <svg
                   className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,16 +41,19 @@ const Status = (props) => {
             {/* Popup selection */}
             {showFilter && (
               <div
-                className="transition-all w-full overflow-auto origin-top-right absolute right-0 mt-2 z-0 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                className="transition-all w-full overflow-auto origin-top-right absolute right-0 mt-2 z-0 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none py-1"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
                 tabIndex="-1"
               >
-                {[5, 10, 50, 100].map((i) => (
-                  <div className="py-" role="none">
+                <div className="py-1" role="none">
+                  {[5, 10, 50, 100].map((i) => (
                     <button
-                      onClick={(e) => setFilter(e.target.value)}
+                      onClick={(e) => {
+                        setFilterBy(e.target.value);
+                        setShowFilter(false);
+                      }}
                       href="#"
                       className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
                       role="menuitem"
@@ -59,8 +63,8 @@ const Status = (props) => {
                     >
                       Top {i} Countries
                     </button>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -75,6 +79,7 @@ const Status = (props) => {
                 aria-expanded="true"
                 aria-haspopup="true"
               >
+                {filterByContinent}
                 <svg
                   className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,13 +106,23 @@ const Status = (props) => {
                 tabIndex="-1"
               >
                 <div className="py-1" role="none">
-                  <button
-                    href="#"
-                    className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="menu-item-0"
-                  ></button>
+                  {continents.map((continent, i) => (
+                    <button
+                      onClick={(e) => {
+                        setFilterByContinent(e.target.value);
+                        setShowContinent(false);
+                      }}
+                      href="#"
+                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                      key={i}
+                      value={continent.continent}
+                    >
+                      {continent.continent}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
@@ -123,7 +138,7 @@ const Status = (props) => {
                   scope="col"
                   className="z-0 md:px-3 lg:px-3 pl-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tl-md"
                 >
-                  Top 5 Countries
+                  Top {filterBy} Countries
                 </th>
                 <th
                   scope="col"
