@@ -4,7 +4,7 @@ const Status = (props) => {
   const { countries, continents } = props;
   const [showInfos, setShowInfos] = useState(false);
   const [showContinent, setShowContinent] = useState(false);
-  const [showFilter, setShowFilter] = useState(true);
+  const [showFilter, setShowFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(5);
   const [filterByContinent, setFilterByContinent] = useState("North America");
   let getTotal = countries.filter(
