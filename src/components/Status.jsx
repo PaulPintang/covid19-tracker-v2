@@ -7,6 +7,9 @@ const Status = (props) => {
   const [showFilter, setShowFilter] = useState(true);
   const [filterBy, setFilterBy] = useState(5);
   const [filterByContinent, setFilterByContinent] = useState("North America");
+  let getTotal = countries.filter(
+    (country) => country.continent === filterByContinent
+  );
   return (
     <div>
       <div className="flex items-center justify-between pb-4">
@@ -127,6 +130,18 @@ const Status = (props) => {
             )}
           </div>
         </div>
+        <div>
+          <p
+            className=" text-gray-300 text-sm"
+            style={{ textOverflow: "hidden" }}
+          >
+            {/* Data as of {now} */}
+            <span className="font-semibold uppercase">
+              {filterByContinent} :
+            </span>{" "}
+            Total of {getTotal.length} Countries
+          </p>
+        </div>
       </div>
       <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2 ">
         <div className="overflow-y-scroll max-h-[440px] scrollbar-hidden">
@@ -203,7 +218,7 @@ const Status = (props) => {
                             className="w-full rounded-md"
                           />
                         </div>
-                        <p className="font-medium uppercase text-sm dark:text-gray-300">
+                        <p className="font-medium uppercase text-sm dark:text-gray-300 max-w-[100px]">
                           {country.country}
                         </p>
                       </div>
