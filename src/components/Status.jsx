@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Status = (props) => {
   const { countries } = props;
   const [showInfos, setShowInfos] = useState(false);
+  const [showContinent, setShowContinent] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   countries.push();
   return (
@@ -12,6 +14,7 @@ const Status = (props) => {
           <div className="relative inline-block text-left w-full">
             <div>
               <button
+                onClick={() => setShowFilter(!showFilter)}
                 type="button"
                 className="flex justify-between md:w-48 lg:w-48 w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
@@ -34,27 +37,35 @@ const Status = (props) => {
               </button>
             </div>
             {/* Popup selection */}
-            {/* <div
-              className="transition-all h-56 w-full overflow-auto origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabIndex="-1"
-            >
-              <div className="py-1" role="none">
-                <button
-                  href="#"
-                  className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                ></button>
+            {showFilter && (
+              <div
+                className="transition-all h-56 w-full overflow-auto origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabIndex="-1"
+              >
+                {[5, 10, 50, 100].map((i) => (
+                  <div className="py-1" role="none">
+                    <button
+                      href="#"
+                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0"
+                    >
+                      Top {i} Countries
+                    </button>
+                  </div>
+                ))}
               </div>
-            </div> */}
+            )}
           </div>
+
           <div className="relative inline-block text-left w-full">
             <div>
               <button
+                onClick={() => setShowContinent(!showContinent)}
                 type="button"
                 className="flex justify-between md:w-[180px] lg:w-[180px] w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
@@ -77,23 +88,26 @@ const Status = (props) => {
               </button>
             </div>
 
-            {/* <div
-              className="transition-all origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabIndex="-1"
-            >
-              <div className="py-1" role="none">
-                <button
-                  href="#"
-                  className="w-full text-left text-gray-700 block px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                ></button>
+            {/* Popup selection */}
+            {showContinent && (
+              <div
+                className="transition-all h-56 w-full overflow-auto origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabIndex="-1"
+              >
+                <div className="py-1" role="none">
+                  <button
+                    href="#"
+                    className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                    role="menuitem"
+                    tabIndex="-1"
+                    id="menu-item-0"
+                  ></button>
+                </div>
               </div>
-            </div> */}
+            )}
           </div>
         </div>
       </div>
