@@ -99,7 +99,7 @@ const Status = (props) => {
             {/* Popup selection */}
             {showContinent && (
               <div
-                className="transition-all h-56 w-full overflow-auto origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                className="transition-all h-56 w-full overflow-auto z-50 origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
