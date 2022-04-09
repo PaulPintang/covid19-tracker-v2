@@ -5,9 +5,9 @@ import "./App.css";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
-import Status from "./components/Status";
 import Footer from "./components/Footer";
 import Country from "./components/Country";
+import Table from "./components/Table";
 
 function App() {
   const [total, setTotal] = useState([]);
@@ -56,7 +56,7 @@ function App() {
       </div>
       <Summary continents={continent} total={total} />
       <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
-        <Status countries={countries} continents={continent} />
+        <Table countries={countries} continents={continent} />
       </div>
       <div className="bg-white dark:bg-gray-900 transition-all">
         <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
