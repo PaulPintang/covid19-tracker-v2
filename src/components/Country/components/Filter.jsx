@@ -50,7 +50,6 @@ const Filter = ({
         return country.country.match(regex);
       });
     }
-    console.log("countries:", matches);
     setsuggestions(matches);
   };
 
@@ -192,6 +191,7 @@ const Filter = ({
             onChange={handleSearchInput}
             value={searchInput}
           />
+          {/* X icon */}
           <div className="absolute right-3" style={{ top: 6 }}>
             {searchInput ? (
               <i

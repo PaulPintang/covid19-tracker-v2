@@ -12,8 +12,8 @@ const Status = (props) => {
   );
   return (
     <div>
-      <div className="flex items-center justify-between pb-2">
-        <div className="flex gap-3 w-full md:w-auto lg:w-auto justify-between">
+      <div className="flex flex-col md:flex-row items-center justify-between pb-2">
+        <div className="flex  gap-3 w-full md:w-auto lg:w-auto justify-between">
           <div className="relative inline-block text-left w-full">
             <div>
               <button
@@ -130,7 +130,7 @@ const Status = (props) => {
             )}
           </div>
         </div>
-        <div className="hidden md:flex dark:bg-gray-800 bg-gray-300 px-4 rounded-full">
+        <div className=" dark:bg-gray-800 bg-gray-300 px-4 rounded-md w-full mt-3 text-center py-1 md:w-auto md:mt-0">
           <p
             className=" dark:text-gray-300 text-gray-800 text-sm"
             style={{ textOverflow: "hidden" }}
