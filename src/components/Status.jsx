@@ -6,8 +6,7 @@ const Status = (props) => {
   const [showContinent, setShowContinent] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
   const [filterBy, setFilterBy] = useState(5);
-  const [filterByContinent, setFilterByContinent] = useState("Global");
-  countries.push();
+  const [filterByContinent, setFilterByContinent] = useState("North America");
   return (
     <div>
       <div className="flex items-center justify-between pb-4">
@@ -190,6 +189,7 @@ const Status = (props) => {
             <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
               {countries
                 .sort((a, b) => b.cases - a.cases)
+                .filter((region) => region.continent === filterByContinent)
                 .slice(0, filterBy)
                 .map((country, i) => (
                   <tr key={i} className="border-none ">
