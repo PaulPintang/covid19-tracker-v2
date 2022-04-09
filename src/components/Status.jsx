@@ -6,7 +6,7 @@ const Status = (props) => {
   const [showContinent, setShowContinent] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(5);
-  const [filterByContinent, setFilterByContinent] = useState("North America");
+  const [filterByContinent, setFilterByContinent] = useState("Global");
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );

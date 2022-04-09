@@ -6,7 +6,8 @@ const Table = (props) => {
   const [showContinent, setShowContinent] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(5);
-  const [filterByContinent, setFilterByContinent] = useState("North America");
+  const [filterByContinent, setFilterByContinent] = useState("Global");
+  let test = true;
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );
@@ -106,8 +107,23 @@ const Table = (props) => {
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
                 tabIndex="-1"
+                id="scrollbar"
               >
                 <div className="py-1" role="none">
+                  <button
+                    onClick={(e) => {
+                      setFilterByContinent(e.target.value);
+                      setShowContinent(false);
+                    }}
+                    href="#"
+                    className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                    role="menuitem"
+                    tabIndex="-1"
+                    id="menu-item-0"
+                    value="Global"
+                  >
+                    Global
+                  </button>
                   {continents.map((continent, i) => (
                     <button
                       onClick={(e) => {
@@ -202,97 +218,188 @@ const Table = (props) => {
               </tr>
             </thead>
             <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
-              {countries
-                .sort((a, b) => b.cases - a.cases)
-                .filter((region) => region.continent === filterByContinent)
-                .slice(0, filterBy)
-                .map((country, i) => (
-                  <tr key={i} className="border-none ">
-                    <td className="py-2 pl-2  border-none">
-                      <div className="flex items-center gap-3">
-                        <p>#{i + 1}</p>
-                        <div className="w-7">
-                          <img
-                            src={country.countryInfo.flag}
-                            alt=""
-                            className="w-full rounded-md"
-                          />
-                        </div>
-                        <p className="font-medium uppercase text-sm dark:text-gray-300 max-w-[100px]">
-                          {country.country}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="dark:text-gray-400 py-2">
-                      <div className="flex items-center justify-between">
-                        <span>{country.cases.toLocaleString()}</span>
-                        <i
-                          onClick={() => {
-                            console.log(i);
-                            setShowInfos(!showInfos);
-                          }}
-                          className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
-                        ></i>
-                      </div>
-                      {/* other info's */}
-                      {showInfos && (
-                        <div
-                          className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
-                          role="menu"
-                          aria-orientation="vertical"
-                          aria-labelledby="menu-button"
-                          tabIndex="-1"
-                        >
-                          <div>
-                            <img
-                              src={country.countryInfo.flag}
-                              alt=""
-                              className="w-full rounded-md"
-                            />
+              {filterByContinent === "Global"
+                ? countries
+                    .sort((a, b) => b.cases - a.cases)
+                    .slice(0, filterBy)
+                    .map((country, i) => (
+                      <tr key={i} className="border-none ">
+                        <td className="py-2 pl-2  border-none">
+                          <div className="flex items-center gap-3">
+                            <p>#{i + 1}</p>
+                            <div className="w-7">
+                              <img
+                                src={country.countryInfo.flag}
+                                alt=""
+                                className="w-full rounded-md"
+                              />
+                            </div>
+                            <p className="font-medium uppercase text-sm dark:text-gray-300 max-w-[100px]">
+                              {country.country}
+                            </p>
                           </div>
-                          <div className="pt-1">
-                            <div className="flex items-center gap-1">
-                              <div className="bg-yellow-300 w-5 h-[6px]"></div>
-                              <p className="text-[12px]">
-                                {country.active.toLocaleString()}
-                              </p>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <div className="bg-green-300 w-5 h-[6px]"></div>
-                              <p className="text-[12px]">
-                                {country.recovered.toLocaleString()}
-                              </p>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <div className="bg-red-300 w-5 h-[6px]"></div>
-                              <p className="text-[12px]">
-                                {country.deaths.toLocaleString()}
-                              </p>
-                            </div>
+                        </td>
+                        <td className="dark:text-gray-400 py-2">
+                          <div className="flex items-center justify-between">
+                            <span>{country.cases.toLocaleString()}</span>
+                            <i
+                              onClick={() => {
+                                console.log(i);
+                                setShowInfos(!showInfos);
+                              }}
+                              className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
+                            ></i>
                           </div>
-                        </div>
-                      )}
-                    </td>
-                    <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
-                      {country.active.toLocaleString()}
-                    </td>
-                    <td className="text-yellow-300  py-2 hidden md:table-cell lg:table-cell">
-                      + {country.todayCases.toLocaleString()}
-                    </td>
-                    <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell ">
-                      {country.recovered.toLocaleString()}
-                    </td>
-                    <td className="text-green-300 py-2 pl-3 hidden md:table-cell lg:table-cell">
-                      + {country.todayRecovered.toLocaleString()}
-                    </td>
-                    <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
-                      {country.deaths.toLocaleString()}
-                    </td>
-                    <td className=" text-red-300 py-2 pl-6 hidden md:table-cell lg:table-cell">
-                      + {country.todayDeaths.toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
+                          {/* other info's */}
+                          {showInfos && (
+                            <div
+                              className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
+                              role="menu"
+                              aria-orientation="vertical"
+                              aria-labelledby="menu-button"
+                              tabIndex="-1"
+                            >
+                              <div>
+                                <img
+                                  src={country.countryInfo.flag}
+                                  alt=""
+                                  className="w-full rounded-md"
+                                />
+                              </div>
+                              <div className="pt-1">
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-yellow-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.active.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-green-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.recovered.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-red-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.deaths.toLocaleString()}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
+                          {country.active.toLocaleString()}
+                        </td>
+                        <td className="text-yellow-300  py-2 hidden md:table-cell lg:table-cell">
+                          + {country.todayCases.toLocaleString()}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell ">
+                          {country.recovered.toLocaleString()}
+                        </td>
+                        <td className="text-green-300 py-2 pl-3 hidden md:table-cell lg:table-cell">
+                          + {country.todayRecovered.toLocaleString()}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
+                          {country.deaths.toLocaleString()}
+                        </td>
+                        <td className=" text-red-300 py-2 pl-6 hidden md:table-cell lg:table-cell">
+                          + {country.todayDeaths.toLocaleString()}
+                        </td>
+                      </tr>
+                    ))
+                : countries
+                    .sort((a, b) => b.cases - a.cases)
+                    .filter((region) => region.continent === filterByContinent)
+                    .slice(0, filterBy)
+                    .map((country, i) => (
+                      <tr key={i} className="border-none ">
+                        <td className="py-2 pl-2  border-none">
+                          <div className="flex items-center gap-3">
+                            <p>#{i + 1}</p>
+                            <div className="w-7">
+                              <img
+                                src={country.countryInfo.flag}
+                                alt=""
+                                className="w-full rounded-md"
+                              />
+                            </div>
+                            <p className="font-medium uppercase text-sm dark:text-gray-300 max-w-[100px]">
+                              {country.country}
+                            </p>
+                          </div>
+                        </td>
+                        <td className="dark:text-gray-400 py-2">
+                          <div className="flex items-center justify-between">
+                            <span>{country.cases.toLocaleString()}</span>
+                            <i
+                              onClick={() => {
+                                console.log(i);
+                                setShowInfos(!showInfos);
+                              }}
+                              className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
+                            ></i>
+                          </div>
+                          {/* other info's */}
+                          {showInfos && (
+                            <div
+                              className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
+                              role="menu"
+                              aria-orientation="vertical"
+                              aria-labelledby="menu-button"
+                              tabIndex="-1"
+                            >
+                              <div>
+                                <img
+                                  src={country.countryInfo.flag}
+                                  alt=""
+                                  className="w-full rounded-md"
+                                />
+                              </div>
+                              <div className="pt-1">
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-yellow-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.active.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-green-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.recovered.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <div className="bg-red-300 w-5 h-[6px]"></div>
+                                  <p className="text-[12px]">
+                                    {country.deaths.toLocaleString()}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
+                          {country.active.toLocaleString()}
+                        </td>
+                        <td className="text-yellow-300  py-2 hidden md:table-cell lg:table-cell">
+                          + {country.todayCases.toLocaleString()}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell ">
+                          {country.recovered.toLocaleString()}
+                        </td>
+                        <td className="text-green-300 py-2 pl-3 hidden md:table-cell lg:table-cell">
+                          + {country.todayRecovered.toLocaleString()}
+                        </td>
+                        <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
+                          {country.deaths.toLocaleString()}
+                        </td>
+                        <td className=" text-red-300 py-2 pl-6 hidden md:table-cell lg:table-cell">
+                          + {country.todayDeaths.toLocaleString()}
+                        </td>
+                      </tr>
+                    ))}
             </tbody>
           </table>
         </div>
