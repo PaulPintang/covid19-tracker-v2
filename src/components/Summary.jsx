@@ -114,7 +114,8 @@ const Summary = ({ continents, total }) => {
                 <small className="text-yellow-300 text-sm">
                   +
                   <span className="px-1">
-                    {total.todayCases.toLocaleString()}
+                    {/* {total.todayCases.toLocaleString()} */}
+                    {total.todayCases}
                   </span>
                   today
                 </small>
@@ -122,8 +123,8 @@ const Summary = ({ continents, total }) => {
             ) : (
               continents
                 .filter((region) => region.continent === selectedContinent)
-                .map((region) => (
-                  <div>
+                .map((region, i) => (
+                  <div key={i}>
                     <p className="font-semibold text-gray-800 dark:text-gray-300">
                       <CountUp
                         end={region.active}
@@ -135,7 +136,8 @@ const Summary = ({ continents, total }) => {
                     <small className="text-yellow-300 text-sm">
                       +
                       <span className="px-1">
-                        {region.todayCases.toLocaleString()}
+                        {/* {region.todayCases.toLocaleString()} */}
+                        {region.todayCases}
                       </span>
                       today
                     </small>
@@ -164,7 +166,8 @@ const Summary = ({ continents, total }) => {
                 <small className="text-yellow-300 text-sm">
                   +
                   <span className="px-1">
-                    {total.todayRecovered.toLocaleString()}
+                    {/* {total.todayRecovered.toLocaleString()} */}
+                    {total.todayRecovered}
                   </span>
                   today
                 </small>
@@ -172,8 +175,8 @@ const Summary = ({ continents, total }) => {
             ) : (
               continents
                 .filter((region) => region.continent === selectedContinent)
-                .map((region) => (
-                  <div>
+                .map((region, i) => (
+                  <div key={i}>
                     <p className="font-semibold text-gray-800 dark:text-gray-300">
                       <CountUp
                         end={region.recovered}
@@ -185,7 +188,8 @@ const Summary = ({ continents, total }) => {
                     <small className="text-yellow-300 text-sm">
                       +
                       <span className="px-1">
-                        {region.todayRecovered.toLocaleString()}
+                        {/* {region.todayRecovered.toLocaleString()} */}
+                        {region.todayRecovered}
                       </span>
                       today
                     </small>
@@ -214,7 +218,8 @@ const Summary = ({ continents, total }) => {
                 <small className="text-yellow-300 text-sm">
                   +
                   <span className="px-1">
-                    {total.todayDeaths.toLocaleString()}
+                    {/* {total.todayDeaths.toLocaleString()} */}
+                    {total.todayDeaths}
                   </span>
                   today
                 </small>
@@ -222,8 +227,8 @@ const Summary = ({ continents, total }) => {
             ) : (
               continents
                 .filter((region) => region.continent === selectedContinent)
-                .map((region) => (
-                  <div>
+                .map((region, i) => (
+                  <div key={i}>
                     <p className="font-semibold text-gray-800 dark:text-gray-300">
                       <CountUp
                         end={region.deaths}
@@ -235,7 +240,8 @@ const Summary = ({ continents, total }) => {
                     <small className="text-yellow-300 text-sm">
                       +
                       <span className="px-1">
-                        {region.todayDeaths.toLocaleString()}
+                        {/* {region.todayDeaths.toLocaleString()} */}
+                        {region.todayDeaths}
                       </span>
                       today
                     </small>
