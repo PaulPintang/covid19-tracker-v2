@@ -6,6 +6,25 @@ const Summary = ({ continents, total }) => {
   // state
   const [select, setSelect] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("Global");
+  // const [continentTotal, setContinentTotal] = useState(continents[0].active);
+  // console.log(continentTotal);
+  // console.log(continents[0].active);
+  let [active, todayActive, recovered, todayRecovered, deaths, todayDeaths] =
+    "";
+
+  let filtered = continents
+    .filter((region) => region.continent === selectedContinent)
+    .map(
+      (region) => (
+        (active = region.active),
+        (todayActive = region.todayCases),
+        (recovered = region.recovered),
+        (todayRecovered = region.todayRecovered),
+        (deaths = region.deaths),
+        (todayDeaths = region.todayDeaths)
+      )
+    );
+  console.log(filtered);
   return (
     <div className="shadow-md rounded-md px-7 py-5  md:mx-auto lg:mx-auto mt-3 dark:bg-gray-800 bg-white relative  bottom-14 h-full w-[87%] mx-auto md:w-[830px] lg:w-[830px]">
       <div className="md:flex lg:flex items-center justify-between mx- ">
@@ -16,7 +35,7 @@ const Summary = ({ continents, total }) => {
           <div>
             <p className="text-gray-500 text-sm">Status</p>
             <div className="relative inline-block text-left w-full">
-              {/* Country */}
+              {/* Dropdown */}
               <div>
                 <button
                   type="button"
@@ -42,7 +61,8 @@ const Summary = ({ continents, total }) => {
                   </svg>
                 </button>
               </div>
-              {select ? (
+              {/* selection/map the continents */}
+              {select && (
                 <div
                   className="transition-all h-auto py-2 overflow-auto origin-top-right absolute z-50 right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
                   role="menu"
@@ -50,30 +70,26 @@ const Summary = ({ continents, total }) => {
                   aria-labelledby="menu-button"
                   tabIndex="-1"
                 >
-                  {select && (
-                    <div className="py-1" role="none">
-                      {continents.map((item, i) => (
-                        <button
-                          href="#"
-                          className="w-full text-left text-gray-700 block px-4 py-1 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
-                          role="menuitem"
-                          tabIndex="-1"
-                          id="menu-item-0"
-                          key={i}
-                          value={item.continent}
-                          onClick={() => {
-                            setSelect(!select);
-                            setSelectedContinent(item.continent);
-                          }}
-                        >
-                          {item.continent}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                  <div className="py-1" role="none">
+                    {continents.map((item, i) => (
+                      <button
+                        href="#"
+                        className="w-full text-left text-gray-700 block px-4 py-1 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="menu-item-0"
+                        key={i}
+                        value={item.continent}
+                        onClick={() => {
+                          setSelect(!select);
+                          setSelectedContinent(item.continent);
+                        }}
+                      >
+                        {item.continent}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              ) : (
-                ""
               )}
             </div>
           </div>
@@ -87,13 +103,19 @@ const Summary = ({ continents, total }) => {
             <p className="text-gray-500 text-sm">Total Active Cases</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={total.active}
+                end={selectedContinent === "Global" ? total.active : active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-yellow-300 text-sm">
-              + {total.todayCases} today
+              +
+              <span className="px-1">
+                {selectedContinent === "Global"
+                  ? total.todayCases
+                  : todayActive}
+              </span>
+              today
             </small>
           </div>
         </div>
@@ -106,13 +128,21 @@ const Summary = ({ continents, total }) => {
             <p className="text-gray-500 text-sm">Total Recovered</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={total.recovered}
+                end={
+                  selectedContinent === "Global" ? total.recovered : recovered
+                }
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-green-300 text-sm">
-              + {total.todayRecovered} today
+              +{" "}
+              <span className="px-1">
+                {selectedContinent === "Global"
+                  ? total.todayRecovered
+                  : todayRecovered}
+              </span>{" "}
+              today
             </small>
           </div>
         </div>
@@ -125,13 +155,19 @@ const Summary = ({ continents, total }) => {
             <p className="text-gray-500 text-sm">Total Deaths</p>
             <p className="font-semibold text-gray-800 dark:text-gray-300">
               <CountUp
-                end={total.deaths}
+                end={selectedContinent === "Global" ? total.deaths : deaths}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
               />
             </p>
             <small className="text-red-300 text-sm">
-              + {total.todayDeaths} today
+              +{" "}
+              <span className="px-1">
+                {selectedContinent === "Global"
+                  ? total.todayDeaths
+                  : todayDeaths}
+              </span>{" "}
+              today
             </small>
           </div>
         </div>

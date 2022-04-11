@@ -29,6 +29,7 @@ function App() {
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
         setContinent(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -46,6 +47,7 @@ function App() {
 
   // initialize props for Content COmponent
   const totalCases = total.cases;
+
   return (
     <React.Fragment>
       <div className="bg-white dark:bg-gray-900 transition-all w-full relative overflow-hidden">
