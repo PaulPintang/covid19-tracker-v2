@@ -42,6 +42,8 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+
+    // console.log("RENDERED API CALL");
   }, []);
 
   // initialize props for Content COmponent

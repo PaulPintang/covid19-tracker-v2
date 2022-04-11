@@ -54,6 +54,7 @@ const Table = (props) => {
                 <div className="py-1" role="none">
                   {[5, 10, 50, 100].map((i) => (
                     <button
+                      key={i}
                       onClick={(e) => {
                         setFilterBy(e.target.value);
                         setShowFilter(false);

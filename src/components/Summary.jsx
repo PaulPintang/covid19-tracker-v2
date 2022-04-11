@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import CountUp from "react-countup";
+import CountUp, { useCountUp } from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
 const Summary = ({ continents, total }) => {
@@ -120,6 +119,7 @@ const Summary = ({ continents, total }) => {
                 end={selectedContinent === "Global" ? total.active : active}
                 duration={1}
                 formattingFn={(total) => total.toLocaleString()}
+                redraw={false}
               />
             </p>
             <small className="text-yellow-300 text-sm">
