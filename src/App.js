@@ -5,7 +5,6 @@ import "./App.css";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import Status from "./components/Status";
-import Summary from "./components/Summary";
 import Footer from "./components/Footer";
 import Country from "./components/Country";
 import Table from "./components/Table";
@@ -43,8 +42,6 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-
-    console.log("RENDERED API CALL");
   }, []);
 
   // initialize props for Content COmponent / global cases
@@ -58,8 +55,7 @@ function App() {
           <Content totalCases={totalCases} />
         </div>
       </div>
-      <Summary continents={continent} globalCases={globalCases} />
-      {/* <Status continents={continent} total={total} /> */}
+      <Status continents={continent} globalCases={globalCases} />
       <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
         <Table countries={countries} continents={continent} />
       </div>

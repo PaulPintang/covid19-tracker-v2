@@ -13,6 +13,7 @@ const Summary = ({ continents, globalCases }) => {
   }, []);
 
   let [active, todayCases, recovered, todayRecovered, deaths, todayDeaths] = "";
+
   continents
     .filter((region) => region.continent === selectedContinent)
     .forEach((region) => {
@@ -126,9 +127,15 @@ const Summary = ({ continents, globalCases }) => {
               <small className="text-yellow-300 text-sm">
                 +
                 <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? globalCases.active
-                    : todayCases.toLocaleString()}
+                  <CountUp
+                    end={
+                      selectedContinent === "Global"
+                        ? globalCases.active
+                        : todayCases
+                    }
+                    duration={0.3}
+                    formattingFn={format}
+                  />
                 </span>
                 today
               </small>
@@ -158,9 +165,15 @@ const Summary = ({ continents, globalCases }) => {
               <small className="text-green-300 text-sm">
                 +
                 <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? 3213
-                    : todayRecovered.toLocaleString()}
+                  <CountUp
+                    end={
+                      selectedContinent === "Global"
+                        ? globalCases.todayRecovered
+                        : todayRecovered
+                    }
+                    duration={0.3}
+                    formattingFn={format}
+                  />
                 </span>
                 today
               </small>
@@ -187,9 +200,15 @@ const Summary = ({ continents, globalCases }) => {
               <small className="text-yellow-300 text-sm">
                 +
                 <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? 3213
-                    : todayDeaths.toLocaleString()}
+                  <CountUp
+                    end={
+                      selectedContinent === "Global"
+                        ? globalCases.todayDeaths
+                        : todayDeaths
+                    }
+                    duration={0.3}
+                    formattingFn={format}
+                  />
                 </span>
                 today
               </small>
