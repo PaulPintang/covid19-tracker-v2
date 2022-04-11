@@ -64,7 +64,7 @@ const Summary = ({ continents, globalCases }) => {
               {/* selection/map the continents */}
               {select && (
                 <div
-                  className="transition-all h-auto py-2 overflow-auto origin-top-right absolute z-50 right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
+                  className="transition-all h-auto py-1 overflow-auto origin-top-right absolute z-50 right-0 mt-[1px] w-full rounded-md shadow-lg bg-white dark:bg-gray-800 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
