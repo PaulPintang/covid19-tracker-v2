@@ -59,7 +59,7 @@ const Content = ({ totalCases }) => {
         </div>
       </div>
 
-      <div class="w-[370px] md:w-[360px] lg:w-[360px] md:relative lg:relative md:right-0 lg:right-0 md:bottom-0 lg:bottom-0 absolute right-[-170px] bottom-[-120px] z-0 opacity-30 md:opacity-100 lg:opacity-100 overflow-hidden">
+      <div className="w-[370px] md:w-[360px] lg:w-[360px] md:relative lg:relative md:right-0 lg:right-0 md:bottom-0 lg:bottom-0 absolute right-[-170px] bottom-[-120px] z-0 opacity-30 md:opacity-100 lg:opacity-100 overflow-hidden">
         <img src={virusLg} alt="" className="w-full rotate" />
       </div>
     </div>

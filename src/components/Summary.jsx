@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
@@ -6,13 +7,13 @@ const Summary = ({ continents, total }) => {
   // state
   const [select, setSelect] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("Global");
-  // const [continentTotal, setContinentTotal] = useState(continents[0].active);
-  // console.log(continentTotal);
-  // console.log(continents[0].active);
+
+  // destructure
   let [active, todayActive, recovered, todayRecovered, deaths, todayDeaths] =
     "";
 
-  let filtered = continents
+  // get details based on selected continent
+  continents
     .filter((region) => region.continent === selectedContinent)
     .map(
       (region) => (
@@ -24,7 +25,6 @@ const Summary = ({ continents, total }) => {
         (todayDeaths = region.todayDeaths)
       )
     );
-  console.log(filtered);
   return (
     <div className="shadow-md rounded-md px-7 py-5  md:mx-auto lg:mx-auto mt-3 dark:bg-gray-800 bg-white relative  bottom-14 h-full w-[87%] mx-auto md:w-[830px] lg:w-[830px]">
       <div className="md:flex lg:flex items-center justify-between mx- ">

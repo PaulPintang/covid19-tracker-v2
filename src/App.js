@@ -29,7 +29,6 @@ function App() {
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
         setContinent(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
