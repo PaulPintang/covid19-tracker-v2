@@ -129,8 +129,8 @@ const Summary = ({ continents, total }) => {
               +
               <span className="px-1">
                 {selectedContinent === "Global"
-                  ? total.todayCases
-                  : todayActive}
+                  ? total.todayCases.toLocaleString()
+                  : todayActive.toLocaleString()}
               </span>
               today
             </small>
@@ -159,8 +159,8 @@ const Summary = ({ continents, total }) => {
               +{" "}
               <span className="px-1">
                 {selectedContinent === "Global"
-                  ? total.todayRecovered
-                  : todayRecovered}
+                  ? total.todayRecovered.toLocaleString()
+                  : todayRecovered.toLocaleString()}
               </span>{" "}
               today
             </small>
@@ -187,8 +187,8 @@ const Summary = ({ continents, total }) => {
               +{" "}
               <span className="px-1">
                 {selectedContinent === "Global"
-                  ? total.todayDeaths
-                  : todayDeaths}
+                  ? total.todayDeaths.toLocaleString()
+                  : todayDeaths.toLocaleString()}
               </span>{" "}
               today
             </small>
