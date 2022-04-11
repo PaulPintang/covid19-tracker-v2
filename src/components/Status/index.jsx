@@ -1,28 +1,18 @@
-import React, { useState, useCallback } from "react";
-import CountUp from "react-countup";
-import virus from "../assets/images/virus-sm.png";
+import React, { useState } from "react";
+// import CountUp from "react-countup";
+import virus from "../../assets/images/virus-sm.png";
 
-const Summary = ({ continents, globalCases }) => {
+import Global from "./components/Global";
+
+const Summary = ({ continents, total }) => {
   // state
   const [select, setSelect] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("Global");
 
-  // used useCallback here to prevent from unnecessary updates(for countUp animation)
-  const format = useCallback((total) => {
-    return total.toLocaleString();
-  }, []);
-
-  let [active, todayCases, recovered, todayRecovered, deaths, todayDeaths] = "";
-  continents
-    .filter((region) => region.continent === selectedContinent)
-    .forEach((region) => {
-      active = region.active;
-      todayCases = region.todayCases;
-      recovered = region.recovered;
-      todayRecovered = region.todayRecovered;
-      deaths = region.deaths;
-      todayDeaths = region.todayDeaths;
-    });
+  //   // CountUp: formattingFn
+  //   const format = useCallback((total) => {
+  //     return total.toLocaleString();
+  //   }, []);
 
   return (
     <div className="shadow-md rounded-md px-7 py-5  md:mx-auto lg:mx-auto mt-3 dark:bg-gray-800 bg-white relative  bottom-14 h-full w-[87%] mx-auto md:w-[830px] lg:w-[830px]">
@@ -104,96 +94,12 @@ const Summary = ({ continents, globalCases }) => {
                 </div>
               )}
             </div>
-          </div>
-        </div>
 
-        <div className="flex items-center gap-3">
-          <div className="w-12">
-            <img src={virus} alt="" />
-          </div>
-          <div>
-            <p className="text-gray-500 text-sm">Total Active Cases</p>
-            <div>
-              <p className="font-semibold text-gray-800 dark:text-gray-300">
-                <CountUp
-                  end={
-                    selectedContinent === "Global" ? globalCases.active : active
-                  }
-                  duration={1}
-                  formattingFn={format}
-                />
-              </p>
-              <small className="text-yellow-300 text-sm">
-                +
-                <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? globalCases.active
-                    : todayCases.toLocaleString()}
-                </span>
-                today
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="w-12">
-            <img src={virus} alt="" />
-          </div>
-          <div>
-            <p className="text-gray-500 text-sm">Total Recovered</p>
-            <div>
-              <p className="font-semibold text-gray-800 dark:text-gray-300">
-                <CountUp
-                  end={
-                    selectedContinent === "Global"
-                      ? globalCases.recovered
-                      : recovered
-                  }
-                  duration={1}
-                  preserveValue={true}
-                  formattingFn={format}
-                />
-              </p>
-              <small className="text-green-300 text-sm">
-                +
-                <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? 3213
-                    : todayRecovered.toLocaleString()}
-                </span>
-                today
-              </small>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="w-12">
-            <img src={virus} alt="" />
-          </div>
-          <div>
-            <p className="text-gray-500 text-sm">Total Deaths</p>
-            <div>
-              <p className="font-semibold text-gray-800 dark:text-gray-300">
-                <CountUp
-                  end={
-                    selectedContinent === "Global" ? globalCases.deaths : deaths
-                  }
-                  duration={1}
-                  formattingFn={format}
-                />
-              </p>
-              <small className="text-yellow-300 text-sm">
-                +
-                <span className="px-1">
-                  {selectedContinent === "Global"
-                    ? 3213
-                    : todayDeaths.toLocaleString()}
-                </span>
-                today
-              </small>
-            </div>
+            <Global
+              total={total}
+              continents={continents}
+              selectedContinent={selectedContinent}
+            />
           </div>
         </div>
       </div>
