@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import CountUp, { useCountUp } from "react-countup";
+import React, { useState, useCallback } from "react";
+import CountUp from "react-countup";
 import virus from "../assets/images/virus-sm.png";
 
 const Summary = ({ continents, total }) => {
@@ -24,6 +24,7 @@ const Summary = ({ continents, total }) => {
         (todayDeaths = region.todayDeaths)
       )
     );
+
   return (
     <div className="shadow-md rounded-md px-7 py-5  md:mx-auto lg:mx-auto mt-3 dark:bg-gray-800 bg-white relative  bottom-14 h-full w-[87%] mx-auto md:w-[830px] lg:w-[830px]">
       <div className="md:flex lg:flex items-center justify-between mx- ">
@@ -76,7 +77,6 @@ const Summary = ({ continents, total }) => {
                       role="menuitem"
                       tabIndex="-1"
                       id="menu-item-0"
-                      value={"Global"}
                       onClick={() => {
                         setSelect(!select);
                         setSelectedContinent("Global");
@@ -118,8 +118,11 @@ const Summary = ({ continents, total }) => {
               <CountUp
                 end={selectedContinent === "Global" ? total.active : active}
                 duration={1}
-                formattingFn={(total) => total.toLocaleString()}
-                redraw={false}
+                preserveValue={true}
+                formattingFn={useCallback(
+                  (total) => total.toLocaleString(),
+                  []
+                )}
               />
             </p>
             <small className="text-yellow-300 text-sm">
@@ -146,7 +149,10 @@ const Summary = ({ continents, total }) => {
                   selectedContinent === "Global" ? total.recovered : recovered
                 }
                 duration={1}
-                formattingFn={(total) => total.toLocaleString()}
+                formattingFn={useCallback(
+                  (total) => total.toLocaleString(),
+                  []
+                )}
               />
             </p>
             <small className="text-green-300 text-sm">
@@ -171,7 +177,10 @@ const Summary = ({ continents, total }) => {
               <CountUp
                 end={selectedContinent === "Global" ? total.deaths : deaths}
                 duration={1}
-                formattingFn={(total) => total.toLocaleString()}
+                formattingFn={useCallback(
+                  (total) => total.toLocaleString(),
+                  []
+                )}
               />
             </p>
             <small className="text-red-300 text-sm">

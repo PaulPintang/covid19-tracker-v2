@@ -43,7 +43,7 @@ function App() {
         console.log(err);
       });
 
-    // console.log("RENDERED API CALL");
+    console.log("RENDERED API CALL");
   }, []);
 
   // initialize props for Content COmponent
