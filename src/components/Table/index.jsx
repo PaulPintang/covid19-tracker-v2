@@ -157,7 +157,7 @@ const Table = (props) => {
         <div className=" dark:bg-gray-800 bg-gray-300 px-4 rounded-md w-full mt-3 text-center py-1 md:w-auto md:mt-0">
           <p
             className=" dark:text-gray-300 text-gray-800 text-sm"
-            style={{ textOverflow: "hidden" }}
+            // style={{ textOverflow: "hidden" }}
           >
             <span className="uppercase">{filterByContinent} </span> : Total of
             <span className="font-semibold">
@@ -174,7 +174,10 @@ const Table = (props) => {
       <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
         <div
           // onScroll={() => setShowInfos(false)}
-          className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
+          // className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
+          className={`scrollbar-hidden max-h-[440px] ${
+            filterBy === "50" ? "overflow-y-scroll " : ""
+          }`}
           id="scroll bar-table"
         >
           <table className="min-w-full  border-collapse w-full border-none ">

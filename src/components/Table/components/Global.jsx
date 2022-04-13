@@ -44,7 +44,7 @@ const Global = ({
           {showInfos === index ? (
             <div
               onClick={() => setShowInfos(false)}
-              className="transition-all p-2 absolute z-10  right-[28px] mt-[-28px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
+              className="transition-all p-2 absolute z-20  right-[28px] mt-[-28px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
