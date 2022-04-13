@@ -9,6 +9,8 @@ const Table = (props) => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(5);
   const [filterByContinent, setFilterByContinent] = useState("Global");
+  // state ,used for getting the index of a country(toggle show/hide)
+  const [id, setId] = useState();
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );
@@ -19,7 +21,10 @@ const Table = (props) => {
           <div className="relative inline-block text-left w-full">
             <div>
               <button
-                onClick={() => setShowFilter(!showFilter)}
+                onClick={() => {
+                  setShowFilter(!showFilter);
+                  setShowInfos(false);
+                }}
                 type="button"
                 className="flex justify-between md:w-44  w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
@@ -77,7 +82,10 @@ const Table = (props) => {
           <div className="relative inline-block text-left w-full">
             <div>
               <button
-                onClick={() => setShowContinent(!showContinent)}
+                onClick={() => {
+                  setShowContinent(!showContinent);
+                  setShowInfos(false);
+                }}
                 type="button"
                 className="flex justify-between md:w-[180px] lg:w-[180px] w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none border-opacity-30 dark:bg-gray-800 dark:text-gray-400"
                 id="menu-button"
@@ -233,6 +241,8 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
+                  setId={setId}
+                  id={id}
                 />
               ) : (
                 <Continents
@@ -241,6 +251,8 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
+                  setId={setId}
+                  id={id}
                 />
               )}
             </tbody>

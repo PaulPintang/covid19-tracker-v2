@@ -6,16 +6,18 @@ const Continents = ({
   filterBy,
   setShowInfos,
   showInfos,
+  setId,
+  id,
 }) => {
   return countries
     .sort((a, b) => b.cases - a.cases)
     .filter((region) => region.continent === filterByContinent)
     .slice(0, filterBy)
-    .map((country, i) => (
-      <tr key={i} className="border-none ">
+    .map((country, index) => (
+      <tr key={index} className="border-none ">
         <td className="py-2 pl-2  border-none">
           <div className="flex items-center gap-3">
-            <p>#{i + 1}</p>
+            <p>#{index + 1}</p>
             <div className="w-7">
               <img
                 src={country.countryInfo.flag}
@@ -33,15 +35,16 @@ const Continents = ({
             <span>{country.cases.toLocaleString()}</span>
             <i
               onClick={() => {
-                console.log(i);
+                setId(index);
                 setShowInfos(!showInfos);
               }}
               className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
             ></i>
           </div>
           {/* other info's */}
-          {showInfos && (
+          {showInfos && id === index ? (
             <div
+              onClick={() => setShowInfos(false)}
               className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
@@ -76,6 +79,8 @@ const Continents = ({
                 </div>
               </div>
             </div>
+          ) : (
+            ""
           )}
         </td>
         <td className="dark:text-gray-400 py-2 hidden md:table-cell lg:table-cell">
