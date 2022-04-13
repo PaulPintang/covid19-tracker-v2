@@ -4,13 +4,11 @@ import Global from "./components/Global";
 
 const Table = (props) => {
   const { countries, continents } = props;
-  const [showInfos, setShowInfos] = useState(false);
+  const [showInfos, setShowInfos] = useState();
   const [showContinent, setShowContinent] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(5);
   const [filterByContinent, setFilterByContinent] = useState("Global");
-  // state ,used for getting the index of a country(toggle show/hide)
-  const [id, setId] = useState();
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );
@@ -181,19 +179,19 @@ const Table = (props) => {
         >
           <table className="min-w-full  border-collapse w-full border-none ">
             <thead
-              className="sticky top-0 z-0"
+              className="sticky top-0 z-30"
               style={{ background: "#2D3746" }}
             >
               <tr>
                 <th
                   scope="col"
-                  className="z-0 md:px-3 lg:px-3 pl-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tl-md"
+                  className="md:px-3 lg:px-3 pl-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tl-md"
                 >
                   Top {filterBy} Countries
                 </th>
                 <th
                   scope="col"
-                  className="rounded-tr-md md:rounded-none lg:rounded-none py-3 md:pr-3 lg:pr-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className=" rounded-tr-md md:rounded-none lg:rounded-none py-3 md:pr-3 lg:pr-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Total Cases
                 </th>
@@ -242,8 +240,8 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
-                  setId={setId}
-                  id={id}
+                  // setId={setId}
+                  // id={id}
                 />
               ) : (
                 <Continents
@@ -252,8 +250,8 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
-                  setId={setId}
-                  id={id}
+                  // setId={setId}
+                  // id={id}
                 />
               )}
             </tbody>
