@@ -175,6 +175,7 @@ const Table = (props) => {
       </div>
       <div className="bg-white shadow-md dark:bg-gray-800 mb-8 rounded-md p-2">
         <div
+          // onScroll={() => setShowInfos(false)}
           className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
           id="scroll bar-table"
         >

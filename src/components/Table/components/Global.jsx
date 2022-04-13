@@ -28,8 +28,8 @@ const Global = ({
             </p>
           </div>
         </td>
-        <td className="dark:text-gray-400 py-2">
-          <div className="flex items-center justify-between">
+        <td className="dark:text-gray-400 py-2 relative">
+          <div className="flex items-center justify-between ">
             <span>{country.cases.toLocaleString()}</span>
             <i
               onClick={() => {
@@ -44,7 +44,7 @@ const Global = ({
           {showInfos && id === index ? (
             <div
               onClick={() => setShowInfos(false)}
-              className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
+              className="transition-all p-2 absolute z-50 right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
