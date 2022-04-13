@@ -2,16 +2,14 @@ import React from "react";
 
 const Continents = ({
   countries,
-  filterByContinent,
   filterBy,
   setShowInfos,
   showInfos,
-  setId,
-  id,
+  filterByContinent,
 }) => {
   return countries
-    .sort((a, b) => b.cases - a.cases)
     .filter((region) => region.continent === filterByContinent)
+    .sort((a, b) => b.cases - a.cases)
     .slice(0, filterBy)
     .map((country, index) => (
       <tr key={index} className="border-none ">
@@ -30,22 +28,23 @@ const Continents = ({
             </p>
           </div>
         </td>
-        <td className="dark:text-gray-400 py-2">
-          <div className="flex items-center justify-between">
+        <td className="dark:text-gray-400 py-2 relative ">
+          <div className="flex items-center justify-between ">
             <span>{country.cases.toLocaleString()}</span>
             <i
               onClick={() => {
-                setId(index);
-                setShowInfos(!showInfos);
+                // console.log(i);
+                // setId(index);
+                setShowInfos(index);
               }}
               className="fa-solid fa-circle-info text-gray-400  text-sm pr-3 pt-[2px] md:hidden lg:hidden cursor-pointer"
             ></i>
           </div>
           {/* other info's */}
-          {showInfos && id === index ? (
+          {showInfos === index ? (
             <div
               onClick={() => setShowInfos(false)}
-              className="transition-all p-2 absolute right-[40px] mt-[-20px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
+              className="transition-all p-2 absolute z-20  right-[28px] mt-[-28px] w-24 rounded-md shadow-2xl bg-white dark:bg-gray-800 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"

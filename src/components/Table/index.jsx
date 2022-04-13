@@ -243,8 +243,6 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
-                  // setId={setId}
-                  // id={id}
                 />
               ) : (
                 <Continents
@@ -253,8 +251,6 @@ const Table = (props) => {
                   filterBy={filterBy}
                   setShowInfos={setShowInfos}
                   showInfos={showInfos}
-                  // setId={setId}
-                  // id={id}
                 />
               )}
             </tbody>
