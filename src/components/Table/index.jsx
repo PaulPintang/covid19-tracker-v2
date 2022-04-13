@@ -176,7 +176,7 @@ const Table = (props) => {
           // onScroll={() => setShowInfos(false)}
           // className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
           className={`scrollbar-hidden max-h-[440px] ${
-            filterBy === "50" ? "overflow-y-scroll " : ""
+            filterBy === "50" || "100" ? "overflow-y-scroll " : ""
           }`}
           id="scroll bar-table"
         >
