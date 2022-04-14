@@ -1,13 +1,7 @@
-import React from "react";
-
-const Global = ({
-  countries,
-  filterBy,
-  setShowInfos,
-  showInfos,
-  setId,
-  id,
-}) => {
+import React, { useContext } from "react";
+import TableContext from "../TableContext";
+const Global = ({ countries }) => {
+  const { filterBy, setShowInfos, showInfos } = useContext(TableContext);
   return countries
     .sort((a, b) => b.cases - a.cases)
     .slice(0, filterBy)

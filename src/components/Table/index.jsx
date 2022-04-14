@@ -6,7 +6,6 @@ import Global from "./components/Global";
 const Table = (props) => {
   const { countries, continents } = props;
   const {
-    showInfos,
     setShowInfos,
     showContinent,
     setShowContinent,
@@ -184,7 +183,7 @@ const Table = (props) => {
           // onScroll={() => setShowInfos(false)}
           // className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
           className={`scrollbar-hidden max-h-[440px] ${
-            filterBy === "50" || "100" ? "overflow-y-scroll " : ""
+            filterBy === 50 || 100 ? "overflow-y-scroll " : ""
           }`}
           id="scroll bar-table"
         >
@@ -246,20 +245,9 @@ const Table = (props) => {
             </thead>
             <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
               {filterByContinent === "Global" ? (
-                <Global
-                  countries={countries}
-                  filterBy={filterBy}
-                  setShowInfos={setShowInfos}
-                  showInfos={showInfos}
-                />
+                <Global countries={countries} />
               ) : (
-                <Continents
-                  countries={countries}
-                  filterByContinent={filterByContinent}
-                  filterBy={filterBy}
-                  setShowInfos={setShowInfos}
-                  showInfos={showInfos}
-                />
+                <Continents countries={countries} />
               )}
             </tbody>
           </table>

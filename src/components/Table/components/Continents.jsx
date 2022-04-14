@@ -1,12 +1,8 @@
-import React from "react";
-
-const Continents = ({
-  countries,
-  filterBy,
-  setShowInfos,
-  showInfos,
-  filterByContinent,
-}) => {
+import React, { useContext } from "react";
+import TableContext from "../TableContext";
+const Continents = ({ countries }) => {
+  const { filterBy, setShowInfos, showInfos, filterByContinent } =
+    useContext(TableContext);
   return countries
     .filter((region) => region.continent === filterByContinent)
     .sort((a, b) => b.cases - a.cases)
