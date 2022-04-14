@@ -18,6 +18,7 @@ const Table = ({ countries, continents }) => {
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );
+  console.log(filterBy);
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center justify-between pb-2">
@@ -182,7 +183,7 @@ const Table = ({ countries, continents }) => {
           // onScroll={() => setShowInfos(false)}
           // className="overflow-y-scroll max-h-[440px] scrollbar-hidden"
           className={`scrollbar-hidden max-h-[440px] ${
-            filterBy === 50 || 100 ? "overflow-y-scroll " : ""
+            filterBy >= 50 ? "overflow-y-scroll " : ""
           }`}
           id="scroll bar-table"
         >
