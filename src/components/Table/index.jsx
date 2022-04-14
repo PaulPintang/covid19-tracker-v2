@@ -3,8 +3,7 @@ import TableContext from "./TableContext";
 import Continents from "./components/Continents";
 import Global from "./components/Global";
 
-const Table = (props) => {
-  const { countries, continents } = props;
+const Table = ({ countries, continents }) => {
   const {
     setShowInfos,
     showContinent,

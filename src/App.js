@@ -12,8 +12,10 @@ import { TableProvider } from "./components/Table/TableContext";
 import { CountryProvider } from "./components/Country/CountryContext";
 
 function App() {
+  // const { setGlobalCases, setCountries, setContinent, countries, continents } =
+  //   useContext(CasesContext);
   const [globalCases, setGlobalCases] = useState([]);
-  const [continent, setContinent] = useState([]);
+  const [continents, setContinent] = useState([]);
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    // by continent, use in option tag
+    // by continents, use in option tag
     axios
       .get("https://disease.sh/v3/covid-19/continents")
       .then((res) => {
@@ -50,28 +52,28 @@ function App() {
   const totalCases = globalCases.cases;
 
   return (
-    <React.Fragment>
+    <div>
       <div className="bg-white dark:bg-gray-900 transition-all w-full relative overflow-hidden">
         <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
           <Header />
           <Content totalCases={totalCases} />
         </div>
       </div>
-      <Status continents={continent} globalCases={globalCases} />
+      <Status continents={continents} globalCases={globalCases} />
       <TableProvider>
         <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
-          <Table countries={countries} continents={continent} />
+          <Table countries={countries} continents={continents} />
         </div>
       </TableProvider>
       <CountryProvider>
         <div className="bg-white dark:bg-gray-900 transition-all">
           <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-            <Country countries={countries} continents={continent} />
+            <Country countries={countries} continents={continents} />
           </div>
         </div>
       </CountryProvider>
       <Footer />
-    </React.Fragment>
+    </div>
   );
 }
 
