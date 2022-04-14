@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import TableContext from "./TableContext";
 import Continents from "./components/Continents";
 import Global from "./components/Global";
 
 const Table = (props) => {
   const { countries, continents } = props;
-  const [showInfos, setShowInfos] = useState();
-  const [showContinent, setShowContinent] = useState(false);
-  const [showFilter, setShowFilter] = useState(false);
-  const [filterBy, setFilterBy] = useState(5);
-  const [filterByContinent, setFilterByContinent] = useState("Global");
+  const {
+    showInfos,
+    setShowInfos,
+    showContinent,
+    setShowContinent,
+    showFilter,
+    setShowFilter,
+    filterBy,
+    setFilterBy,
+    filterByContinent,
+    setFilterByContinent,
+  } = useContext(TableContext);
   let getTotal = countries.filter(
     (country) => country.continent === filterByContinent
   );

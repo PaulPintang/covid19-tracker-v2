@@ -8,6 +8,8 @@ import Status from "./components/Status";
 import Footer from "./components/Footer";
 import Country from "./components/Country";
 import Table from "./components/Table";
+import { TableProvider } from "./components/Table/TableContext";
+import { CountryProvider } from "./components/Country/CountryContext";
 
 function App() {
   const [globalCases, setGlobalCases] = useState([]);
@@ -56,14 +58,18 @@ function App() {
         </div>
       </div>
       <Status continents={continent} globalCases={globalCases} />
-      <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
-        <Table countries={countries} continents={continent} />
-      </div>
-      <div className="bg-white dark:bg-gray-900 transition-all">
-        <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
-          <Country countries={countries} continents={continent} />
+      <TableProvider>
+        <div className="container mx-auto px-6 " style={{ maxWidth: 1120 }}>
+          <Table countries={countries} continents={continent} />
         </div>
-      </div>
+      </TableProvider>
+      <CountryProvider>
+        <div className="bg-white dark:bg-gray-900 transition-all">
+          <div className="container mx-auto px-6" style={{ maxWidth: 1120 }}>
+            <Country countries={countries} continents={continent} />
+          </div>
+        </div>
+      </CountryProvider>
       <Footer />
     </React.Fragment>
   );

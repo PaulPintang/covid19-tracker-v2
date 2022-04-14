@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import SelectedCountry from "./SelectedCountry";
-const Filter = ({
-  selectedContinent,
-  setSelectedContinent,
-  selectedCountry,
-  setSelectedCountry,
-  countries,
-  continents,
-}) => {
-  // state for dropdown
-  const [options, setOptions] = useState(false);
-  const [showCountry, setShowCountry] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
-  const [suggestions, setsuggestions] = useState([]);
-  const [showMatch, setShowMatch] = useState(true);
+import CountryContext from "../CountryContext";
+const Filter = ({ countries, continents }) => {
+  const {
+    selectedCountry,
+    setSelectedCountry,
+    selectedContinent,
+    options,
+    showCountry,
+    searchInput,
+    setSearchInput,
+    suggestions,
+    setsuggestions,
+    showMatch,
+    setShowMatch,
+    // functions
+    handleClick,
+    handleClickCountry,
+    handleSearch,
+    handleSelect,
+    handleSelectCountry,
+  } = useContext(CountryContext);
 
   useEffect(() => {
     const filtered = countries.filter(
@@ -21,25 +28,6 @@ const Filter = ({
     );
     filtered.slice(0, 1).map((country) => setSelectedCountry(country.country));
   }, [selectedContinent, countries, setSelectedCountry]);
-
-  const handleClick = () => {
-    setOptions(!options);
-  };
-  const handleClickCountry = () => {
-    setShowCountry(!showCountry);
-  };
-
-  // getting value and close dropdown / CONTINENT DROPDOWN.
-  const handleSelect = (e) => {
-    setSelectedContinent(e.target.value);
-    // console.log(filtered[0].country);
-    setOptions(!options);
-  };
-  // getting value and close dropdown / COUNTRY DROPDOWN.
-  const handleSelectCountry = (e) => {
-    setSelectedCountry(e.target.value);
-    setShowCountry(!showCountry);
-  };
 
   const handleSearchInput = (e) => {
     setShowMatch(true);
@@ -55,12 +43,6 @@ const Filter = ({
     setsuggestions(matches);
   };
 
-  const handleSearch = (e) => {
-    setSelectedCountry(e.target.value);
-    setSearchInput(e.target.value);
-    setsuggestions([]);
-    setShowMatch(false);
-  };
   return (
     <React.Fragment>
       <h1 className="text-2xl dark:text-white pb-7 py-10">Countries</h1>
