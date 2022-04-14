@@ -4,3 +4,6 @@ Project Link V2: https://pincovid19-tracker-v2.netlify.app/
 
 Link to V1:https://paulpintang.github.io/Covid-19-Tracker-App/ <br>
 Github: https://github.com/PaulPintang/Covid-19-Tracker-App
+
+Screenshot:
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
