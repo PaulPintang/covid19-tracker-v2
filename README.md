@@ -6,4 +6,4 @@ Link to V1:https://paulpintang.github.io/Covid-19-Tracker-App/ <br>
 Github: https://github.com/PaulPintang/Covid-19-Tracker-App
 
 Screenshot:
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is an image](/src//assets//images/img1.png)
