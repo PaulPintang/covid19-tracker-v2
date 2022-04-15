@@ -70,7 +70,7 @@ const Table = ({ countries, continents }) => {
                         setShowFilter(false);
                       }}
                       href="#"
-                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-100"
                       role="menuitem"
                       tabIndex="-1"
                       id="menu-item-0"
@@ -131,7 +131,7 @@ const Table = ({ countries, continents }) => {
                       setShowContinent(false);
                     }}
                     href="#"
-                    className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                    className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-100"
                     role="menuitem"
                     tabIndex="-1"
                     id="menu-item-0"
@@ -146,7 +146,7 @@ const Table = ({ countries, continents }) => {
                         setShowContinent(false);
                       }}
                       href="#"
-                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-200"
+                      className="w-full text-left text-gray-700 px-4 py-2 text-sm dark:bg-gray-800 dark:text-gray-400 hover:dark:bg-gray-600 transition-all hover:bg-gray-100"
                       role="menuitem"
                       tabIndex="-1"
                       id="menu-item-0"
@@ -188,62 +188,59 @@ const Table = ({ countries, continents }) => {
           id="scroll bar-table"
         >
           <table className="min-w-full  border-collapse w-full border-none ">
-            <thead
-              className="sticky top-0 z-30"
-              style={{ background: "#2D3746" }}
-            >
+            <thead className="sticky top-0 z-30  dark:bg-[#2D3746]">
               <tr>
                 <th
                   scope="col"
-                  className="md:px-3 lg:px-3 pl-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tl-md"
+                  className="md:px-3 lg:px-3 pl-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider  bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tl-md"
                 >
                   Top {filterBy} Countries
                 </th>
                 <th
                   scope="col"
-                  className=" rounded-tr-md md:rounded-none lg:rounded-none py-3 md:pr-3 lg:pr-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className=" rounded-tr-md md:rounded-none lg:rounded-none py-3 md:pr-3 lg:pr-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider  bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Total Cases
                 </th>
                 <th
                   scope="col"
-                  className="hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className="hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Active Cases
                 </th>
                 <th
                   scope="col"
-                  className="hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className="hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Today Cases
                 </th>
                 <th
                   scope="col"
-                  className=" hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className=" hidden md:table-cell lg:table-cell py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Recovered
                 </th>
                 <th
                   scope="col"
-                  className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Today Recovered
                 </th>
                 <th
                   scope="col"
-                  className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
+                  className=" hidden md:table-cell lg:table-cell  py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm"
                 >
                   Deaths
                 </th>
                 <th
                   scope="col"
-                  className=" hidden md:table-cell lg:table-cell py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-white dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tr-md"
+                  className=" hidden md:table-cell lg:table-cell py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider bg-gray-100 dark:bg-gray-700 dark:bg-opacity-60 shadow-sm rounded-tr-md"
                 >
                   Today Deaths
                 </th>
               </tr>
             </thead>
-            <tbody className=" divide-y divide-gray-200 overflow-auto text-gray-700">
+            <tbody className=" divide-y divide-gray-100 overflow-auto text-gray-700">
               {filterByContinent === "Global" ? (
                 <Global countries={countries} />
               ) : (
