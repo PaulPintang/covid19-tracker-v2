@@ -12,9 +12,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      #b-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      #b-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #8d929d;
+        border-radius: 10px;
+      }
+    </style>
     <title>Covid-19 Tracker</title>
   </head>
   <body
+    id="b-scrollbar"
     class="bg-gray-100 bg-opacity-30 dark:bg-gray-700 transition-all overflow-x-hidden"
   >
     <div id="root"></div>
