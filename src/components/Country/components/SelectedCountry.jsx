@@ -1,5 +1,6 @@
 import React from "react";
 import MonthlyChart from "./Charts/MonthlyChart";
+import WeeklyChart from "./Charts/WeeklyChart";
 // import Charts from "./Charts";
 const SelectedCountry = ({ selectedCountry, countries }) => {
   return (
@@ -90,7 +91,14 @@ const SelectedCountry = ({ selectedCountry, countries }) => {
             </React.Fragment>
           ))}
       </div>
-      <MonthlyChart />
+      <div className="flex items-center w-full gap-4">
+        <div className="w-2/4">
+          <MonthlyChart />
+        </div>
+        <div className="w-2/4">
+          <WeeklyChart />
+        </div>
+      </div>
       {/* <Charts countries={countries} selectedCountry={selectedCountry} /> */}
     </div>
   );

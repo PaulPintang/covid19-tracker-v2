@@ -5,7 +5,7 @@ Exporting(Highcharts);
 
 const MonthlyChart = () => {
   useEffect(() => {
-    new Highcharts.chart("container", {
+    new Highcharts.chart("monthly", {
       chart: {
         type: "column",
       },
@@ -88,7 +88,7 @@ const MonthlyChart = () => {
   return (
     <div>
       <p>chart</p>
-      <div id="container"></div>
+      <div id="monthly"></div>
     </div>
   );
 };
