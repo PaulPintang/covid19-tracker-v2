@@ -1,4 +1,5 @@
 import React from "react";
+import MonthlyChart from "./Charts/MonthlyChart";
 // import Charts from "./Charts";
 const SelectedCountry = ({ selectedCountry, countries }) => {
   return (
@@ -89,6 +90,7 @@ const SelectedCountry = ({ selectedCountry, countries }) => {
             </React.Fragment>
           ))}
       </div>
+      <MonthlyChart />
       {/* <Charts countries={countries} selectedCountry={selectedCountry} /> */}
     </div>
   );
