@@ -1,13 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Highcharts from "highcharts";
 import Exporting from "highcharts/modules/exporting";
 Exporting(Highcharts);
 
 const WeeklyChart = () => {
+  const [weekly, setWeekly] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://disease.sh/v3/covid-19/historical/India?lastdays=7")
+      .then((res) => {
+        setWeekly(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   useEffect(() => {
     new Highcharts.chart("weekly", {
       title: {
-        text: "Solar Employment Growth by Sector, 2010-2016",
+        text: `${weekly.country} Weekly Covid-19 Cases`,
       },
 
       subtitle: {
@@ -16,20 +29,14 @@ const WeeklyChart = () => {
 
       yAxis: {
         title: {
-          text: "Number of Employees",
+          text: "Covid-19 Cases",
         },
       },
 
       xAxis: {
         accessibility: {
-          rangeDescription: "Range: 2010 to 2017",
+          rangeDescription: "",
         },
-      },
-
-      legend: {
-        layout: "vertical",
-        align: "right",
-        verticalAlign: "middle",
       },
 
       plotOptions: {
@@ -37,30 +44,26 @@ const WeeklyChart = () => {
           label: {
             connectorAllowed: false,
           },
-          pointStart: 2010,
+          pointStart: 2022,
         },
       },
 
       series: [
         {
-          name: "Installation",
+          name: "New",
           data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
         },
         {
-          name: "Manufacturing",
+          name: "Active",
           data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434],
         },
         {
-          name: "Sales & Distribution",
+          name: "Recovered",
           data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387],
         },
         {
-          name: "Project Development",
+          name: "Deaths",
           data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227],
-        },
-        {
-          name: "Other",
-          data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111],
         },
       ],
 
@@ -81,11 +84,10 @@ const WeeklyChart = () => {
         ],
       },
     });
-  });
+  }, []);
 
   return (
     <div>
-      <p>weekly</p>
       <div id="weekly"></div>
     </div>
   );

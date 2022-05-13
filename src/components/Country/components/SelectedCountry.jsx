@@ -99,7 +99,6 @@ const SelectedCountry = ({ selectedCountry, countries }) => {
           <WeeklyChart />
         </div>
       </div>
-      {/* <Charts countries={countries} selectedCountry={selectedCountry} /> */}
     </div>
   );
 };
